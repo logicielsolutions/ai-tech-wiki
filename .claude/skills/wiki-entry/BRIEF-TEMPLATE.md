@@ -26,7 +26,8 @@ Copy into `src/content/<slug>/brief.md`. Each field holds a fact plus where it c
 - How it works, in 3–6 plain steps:
 - Visual metaphor (the everyday objects that stand for the parts):
 - Worked example for "See it in action":
-- Interactive figure? (yes / no; if it calls a paid API, explicit approval):
+- Interactive figure? (yes / no; example values only, never a live API call):
+- The one code snippet for the tech page (what it shows):
 
 ## The facts
 - Stack and models:

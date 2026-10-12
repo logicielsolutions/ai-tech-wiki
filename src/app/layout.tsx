@@ -1,29 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "AI Tech Wiki",
-  description: "Notes on AI tooling and techniques",
+  title: { default: "AI Tech Wiki", template: "%s · AI Tech Wiki" },
+  description: "AI experiments and projects, explained for everyone and for engineers.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full">
+      <body className="flex min-h-full flex-col">
+        <header className="material-bar sticky top-0 z-20 border-b border-rule/70">
+          <nav className="mx-auto flex h-12 w-full max-w-[60rem] items-center px-5 md:px-12">
+            <Link href="/" className="text-[0.9375rem] font-semibold tracking-[-0.01em]">
+              AI Tech Wiki
+            </Link>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

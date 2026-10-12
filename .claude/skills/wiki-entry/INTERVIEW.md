@@ -24,7 +24,8 @@ Even when the source seems to answer these, they are judgement calls the person 
 
 **Explainer**
 - Which worked example should the reader follow end to end?
-- Should the explainer have an interactive figure? If it would call a paid API, is that approved, and at what cost per click?
+- Should the explainer have an interactive figure? (It runs on example values in the page; it never calls an API.)
+- Which one code snippet best captures the idea for the tech page?
 - Where does a human stay in charge, in plain words?
 
 **Tech**
