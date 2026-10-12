@@ -41,7 +41,7 @@ Create the entry folder `src/content/<slug>/`:
 | `explainer.tsx` | The explainer view, composed from `src/components/wiki/` |
 | `tech.tsx` | The tech view, composed from `src/components/wiki/` |
 
-Register the entry in `src/content/index.ts`. When a page needs a pattern no shared component covers, build it in `src/components/wiki/` from brand tokens, so the next entry inherits it. Interactive figures on the explainer are encouraged when they make the mechanism visible; any figure that calls a paid API needs the person's explicit yes in the brief.
+Register the entry in `src/content/index.ts`. When a page needs a pattern no shared component covers, build it in `src/components/wiki/` from brand tokens, so the next entry inherits it. The wiki holds information, not the source project: never copy the source's code, dependencies or runtime into this repo, and never call an API from a page. Interactive figures on the explainer are fine when they run on example values baked into the page and labelled as examples. The tech page may carry **one** code snippet, shown in a `CodeBlock`, that captures the core idea (e.g. the single API call); it is displayed, not run.
 
 **Done when** all five files exist, the entry is registered, and every fact on both pages traces to a line in the brief.
 

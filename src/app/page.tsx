@@ -1,32 +1,22 @@
-const topics = [
-  { title: "LLMs", description: "How large language models work and where they fit." },
-  { title: "RAG", description: "Retrieval-augmented generation patterns and trade-offs." },
-  { title: "Agents", description: "Tool use, planning loops, and multi-agent setups." },
-  { title: "Evals", description: "Measuring model and prompt quality." },
-];
+import { EntryCard, PageShell } from "@/components/wiki";
+import { entries } from "@/content";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-10 px-6 py-24">
-      <header className="flex flex-col gap-3">
-        <h1 className="text-4xl font-semibold tracking-tight">AI Tech Wiki</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400">
-          A placeholder home for notes on AI tooling and techniques.
+    <PageShell>
+      <header className="flex flex-col gap-4 pb-14 pt-16 md:pb-16 md:pt-24">
+        <h1 className="text-[clamp(2.5rem,6vw,3.5rem)] leading-[1.05] tracking-[-0.03em]">AI Tech Wiki</h1>
+        <p className="max-w-[44ch] text-[1.25rem] leading-snug tracking-[-0.01em] text-muted">
+          Our AI experiments and projects, explained twice: once for anyone, once for engineers.
         </p>
       </header>
-      <ul className="grid gap-4 sm:grid-cols-2">
-        {topics.map((topic) => (
-          <li
-            key={topic.title}
-            className="rounded-lg border border-zinc-200 p-5 dark:border-zinc-800"
-          >
-            <h2 className="font-medium">{topic.title}</h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-              {topic.description}
-            </p>
+      <ul className="grid gap-5 pb-24 md:grid-cols-2 lg:grid-cols-3">
+        {entries.map((entry) => (
+          <li key={entry.meta.slug} className="flex">
+            <EntryCard entry={entry} />
           </li>
         ))}
       </ul>
-    </main>
+    </PageShell>
   );
 }
