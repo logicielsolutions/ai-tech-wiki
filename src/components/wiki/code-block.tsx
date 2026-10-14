@@ -12,7 +12,15 @@ export function CodeBlock({ code, title }: { code: string; title?: string }) {
   );
 }
 
-/** An inline code token: an API name, env var or path. */
+/**
+ * An inline code token: an API name, env var or path. Long unbroken tokens (file paths, URLs, CLI
+ * lines) must be allowed to break mid-token, or they push the page past 375px — see the brand's
+ * no-horizontal-scroll rule.
+ */
 export function Code({ children }: { children: string }) {
-  return <code className="rounded-md bg-surface px-1.5 py-0.5 font-mono text-[0.875em]">{children}</code>;
+  return (
+    <code className="rounded-md bg-surface px-1.5 py-0.5 font-mono text-[0.875em] [overflow-wrap:anywhere]">
+      {children}
+    </code>
+  );
 }
