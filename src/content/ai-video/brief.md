@@ -142,13 +142,13 @@ Shut-down tools (Sora), "fallen behind" commentary, and 2026 "what changed" news
 9. **Going deeper**: link to the tech view.
 
 ### Tech (reader: engineers)
+0. **On this page**: PageIndex at the very top, before At a glance, listing At a glance and every section, with sub-headings as children (updated 14 Oct 2026 to follow the wiki-entry skill change in PR #8).
 1. **At a glance**: DataTable: what it covers, top picks, typical clip length, typical cost, tries per keeper, status, owner, source.
-2. **On this page**: PageIndex listing every section below, with sub-headings as children (added 14 Oct 2026 to follow the updated wiki-entry skill on main).
-3. **Architecture**: pipeline diagram (text encoder → latent noise → diffusion transformer ×20–50 → VAE decoder → clip + audio) and walkthrough; why clips are short (quadratic attention).
-4. **Core mechanism**: generation modes (T2V, I2V, V2V, first/last frame, references, native audio, extend, upscale, LoRA); prompting anatomy; image-to-video rules; audio; consistency; model quirks table; JSON prompts and the one CodeBlock (product hero JSON).
-5. **Key decisions and trade-offs**: best model per use case table (pick / runner-up / how) and leaderboard; decisions (image-first workflow, draft cheap + finals premium, API vs subscription, open vs closed).
-6. **Evaluation**: leaderboard scores and how they're measured; known failure modes table with workarounds.
-7. **Limits and risks**: failure modes, cost multiplier, commercial-use traps, prices change monthly, tiny legal note.
-8. **Run it yourself**: pricing table with official links; cheapest way to experiment; recommended team setup; workflow from brief to export.
-9. **Open questions / next steps**: rankings shift monthly, JSON vs prose untested, re-check prices before buying.
-10. **Sources**: official vendor pages and guides.
+2. **Architecture**: pipeline diagram (text encoder → latent noise → diffusion transformer ×20–50 → VAE decoder → clip + audio) and walkthrough; why clips are short (quadratic attention).
+3. **Core mechanism**: generation modes (T2V, I2V, V2V, first/last frame, references, native audio, extend, upscale, LoRA); prompting anatomy; image-to-video rules; audio; consistency; model quirks table; JSON prompts and the one CodeBlock (product hero JSON).
+4. **Key decisions and trade-offs**: best model per use case table (pick / runner-up / how) and leaderboard; decisions (image-first workflow, draft cheap + finals premium, API vs subscription, open vs closed).
+5. **Evaluation**: leaderboard scores and how they're measured; known failure modes table with workarounds.
+6. **Limits and risks**: failure modes, cost multiplier, commercial-use traps, prices change monthly, tiny legal note.
+7. **Run it yourself**: pricing table with official links; cheapest way to experiment; recommended team setup; workflow from brief to export.
+8. **Open questions / next steps**: rankings shift monthly, JSON vs prose untested, re-check prices before buying.
+9. **Sources**: official vendor pages and guides.

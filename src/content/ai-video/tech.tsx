@@ -102,44 +102,9 @@ function PipelineDiagram() {
 export default function Tech() {
   return (
     <>
-      <Section id="glance" title="At a glance">
-        <Prose>
-          <p>
-            This page is the working reference for AI video generation as of <strong>14 Oct 2026</strong>: how the models
-            work, which model to use for which job, what it costs per second, and how to prompt. It recommends; it doesn&apos;t
-            survey everything. Rankings and prices move monthly, so every price links to the vendor&apos;s own page.
-          </p>
-          <p>
-            Short version: <strong>image-to-video beats text-to-video</strong> for anything that has to look like a specific
-            product or person; <strong>pick the model per shot type</strong>, not per project; <strong>draft on a cheap model
-            and re-render winners on a premium one</strong>; and <strong>add text and logos in post</strong>, always.
-          </p>
-        </Prose>
-        <KeyNumbers>
-          <KeyNumber value="5–15 s" label="Typical clip length; longer videos are stitched shots" />
-          <KeyNumber value="3–10×" label="Generations per usable clip (tries per keeper)" />
-          <KeyNumber value="2.5–60¢" label="Per second of output, cheap API to 4K premium" />
-          <KeyNumber value="20–50" label="Denoising steps per generation" />
-        </KeyNumbers>
-        <DataTable
-          stack
-          columns={["", ""]}
-          rows={[
-            ["Covers", "Text-to-video, image-to-video, video-to-video, avatar (talking-head) tools, aggregator APIs"],
-            ["Top text-to-video", "Wan 3.0, Seedance 2.5, MiniMax H3 (blind-vote leaderboard)"],
-            ["Top image-to-video", "MiniMax H3, Gemini Omni Flash, Vidu Q4, Seedance 2.5"],
-            ["Best open model", "LTX-2.3 (Apache 2.0, self-hostable, LoRA-trainable)"],
-            ["Avatars / spokesperson", "HeyGen; Synthesia for corporate training"],
-            ["Cheapest API access", "fal.ai pay-per-second, from $0.025/s (MiniMax H3 Turbo)"],
-            ["Status", "Production guide, in use"],
-            ["Owner", "AI Practice team"],
-            ["Source", "AI Video Field Guide research, compiled 13 Oct 2026 from vendor pricing pages, the Artificial Analysis Video Arena and official prompting guides"],
-          ]}
-        />
-      </Section>
-
       <PageIndex
         items={[
+          { id: "glance", title: "At a glance" },
           { id: "architecture", title: "Architecture: what happens in one generation" },
           {
             id: "mechanism",
@@ -182,6 +147,42 @@ export default function Tech() {
           { id: "sources", title: "Sources" },
         ]}
       />
+
+      <Section id="glance" title="At a glance">
+        <Prose>
+          <p>
+            This page is the working reference for AI video generation as of <strong>14 Oct 2026</strong>: how the models
+            work, which model to use for which job, what it costs per second, and how to prompt. It recommends; it doesn&apos;t
+            survey everything. Rankings and prices move monthly, so every price links to the vendor&apos;s own page.
+          </p>
+          <p>
+            Short version: <strong>image-to-video beats text-to-video</strong> for anything that has to look like a specific
+            product or person; <strong>pick the model per shot type</strong>, not per project; <strong>draft on a cheap model
+            and re-render winners on a premium one</strong>; and <strong>add text and logos in post</strong>, always.
+          </p>
+        </Prose>
+        <KeyNumbers>
+          <KeyNumber value="5–15 s" label="Typical clip length; longer videos are stitched shots" />
+          <KeyNumber value="3–10×" label="Generations per usable clip (tries per keeper)" />
+          <KeyNumber value="2.5–60¢" label="Per second of output, cheap API to 4K premium" />
+          <KeyNumber value="20–50" label="Denoising steps per generation" />
+        </KeyNumbers>
+        <DataTable
+          stack
+          columns={["", ""]}
+          rows={[
+            ["Covers", "Text-to-video, image-to-video, video-to-video, avatar (talking-head) tools, aggregator APIs"],
+            ["Top text-to-video", "Wan 3.0, Seedance 2.5, MiniMax H3 (blind-vote leaderboard)"],
+            ["Top image-to-video", "MiniMax H3, Gemini Omni Flash, Vidu Q4, Seedance 2.5"],
+            ["Best open model", "LTX-2.3 (Apache 2.0, self-hostable, LoRA-trainable)"],
+            ["Avatars / spokesperson", "HeyGen; Synthesia for corporate training"],
+            ["Cheapest API access", "fal.ai pay-per-second, from $0.025/s (MiniMax H3 Turbo)"],
+            ["Status", "Production guide, in use"],
+            ["Owner", "AI Practice team"],
+            ["Source", "AI Video Field Guide research, compiled 13 Oct 2026 from vendor pricing pages, the Artificial Analysis Video Arena and official prompting guides"],
+          ]}
+        />
+      </Section>
 
       <Section id="architecture" title="Architecture: what happens in one generation">
         <Figure caption="Every current video model follows this shape: encode the prompt, start from noise in a compressed latent space, denoise with a transformer over many steps, decode to frames." scroll>
