@@ -78,25 +78,9 @@ function PipelineDiagram() {
 export default function Tech() {
   return (
     <>
-      <Section id="glance" title="At a glance">
-        <DataTable
-          stack
-          columns={["Item", "Detail"]}
-          rows={[
-            ["What", "Full fine-tuning vs LoRA vs QLoRA, measured on five jobs, 20 Jul – 21 Aug 2026. Scope: how much of the model trains, not the objective (no DPO/GRPO here)"],
-            ["Core study", <span key="c">Text-to-SQL, <Code>unsloth/Llama-3.2-3B-Instruct</Code> (revision pinned), LoRA vs QLoRA as a one-flag A/B</span>],
-            ["Other studies", "Llama-3.2-1B character voice (LoRA vs QLoRA); BERT / RoBERTa / Twitter-RoBERTa on TweetEval (full); FunctionGemma-270M full vs Gemma-3-1B LoRA (Mac actions); ModernBERT-base (full, spam); roberta-base ×7 (full, GLUE merging)"],
-            ["Stack", <span key="s">Unsloth, TRL <Code>SFTTrainer</Code>, PEFT 0.19.1, bitsandbytes 0.49.2, transformers 5.5.0, torch 2.11.0+cu128; Hugging Face <Code>Trainer</Code> for the encoders</span>],
-            ["Hardware", "Free-tier Colab Tesla T4 (fp16, no bf16) for SQL, character voice and sentiment; BIRD scored on a laptop CPU"],
-            ["Status", "Experiment. Nothing from these runs is deployed"],
-            ["Owner", "Gurjeet Singh Saini, AI Practice"],
-            ["Source", <span key="src"><Code>~/Documents/Logiciel-Projects/fine-tuning</Code> and <Code>finetuning-sprint</Code> (local only, no remotes)</span>],
-          ]}
-        />
-      </Section>
-
       <PageIndex
         items={[
+          { id: "glance", title: "At a glance" },
           { id: "architecture", title: "Architecture" },
           { id: "mechanism", title: "Core mechanism" },
           { id: "decisions", title: "Key decisions and trade-offs" },
@@ -116,6 +100,23 @@ export default function Tech() {
           { id: "sources", title: "Sources" },
         ]}
       />
+
+      <Section id="glance" title="At a glance">
+        <DataTable
+          stack
+          columns={["Item", "Detail"]}
+          rows={[
+            ["What", "Full fine-tuning vs LoRA vs QLoRA, measured on five jobs, 20 Jul – 21 Aug 2026. Scope: how much of the model trains, not the objective (no DPO/GRPO here)"],
+            ["Core study", <span key="c">Text-to-SQL, <Code>unsloth/Llama-3.2-3B-Instruct</Code> (revision pinned), LoRA vs QLoRA as a one-flag A/B</span>],
+            ["Other studies", "Llama-3.2-1B character voice (LoRA vs QLoRA); BERT / RoBERTa / Twitter-RoBERTa on TweetEval (full); FunctionGemma-270M full vs Gemma-3-1B LoRA (Mac actions); ModernBERT-base (full, spam); roberta-base ×7 (full, GLUE merging)"],
+            ["Stack", <span key="s">Unsloth, TRL <Code>SFTTrainer</Code>, PEFT 0.19.1, bitsandbytes 0.49.2, transformers 5.5.0, torch 2.11.0+cu128; Hugging Face <Code>Trainer</Code> for the encoders</span>],
+            ["Hardware", "Free-tier Colab Tesla T4 (fp16, no bf16) for SQL, character voice and sentiment; BIRD scored on a laptop CPU"],
+            ["Status", "Experiment. Nothing from these runs is deployed"],
+            ["Owner", "Gurjeet Singh Saini, AI Practice"],
+            ["Source", <span key="src"><Code>~/Documents/Logiciel-Projects/fine-tuning</Code> and <Code>finetuning-sprint</Code> (local only, no remotes)</span>],
+          ]}
+        />
+      </Section>
 
       <Section id="architecture" title="Architecture">
         <Figure scroll caption="The text-to-SQL study. The two training arms are identical except for load_in_4bit; everything downstream is shared.">

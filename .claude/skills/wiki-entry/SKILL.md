@@ -41,9 +41,9 @@ Create the entry folder `src/content/<slug>/`:
 | `explainer.tsx` | The explainer view, composed from `src/components/wiki/` |
 | `tech.tsx` | The tech view, composed from `src/components/wiki/` |
 
-The tech view opens with At a glance followed immediately by a `PageIndex` ("On this page") that links to every later section by its anchor, per VOICE.md. Register the entry in `src/content/index.ts`. When a page needs a pattern no shared component covers, build it in `src/components/wiki/` from brand tokens, so the next entry inherits it. The wiki holds information, not the source project: never copy the source's code, dependencies or runtime into this repo, and never call an API from a page. Interactive figures on the explainer are fine when they run on example values baked into the page and labelled as examples. The tech page may carry **one** code snippet, shown in a `CodeBlock`, that captures the core idea (e.g. the single API call); it is displayed, not run.
+The tech view opens with a `PageIndex` ("On this page") at the very top, before At a glance, linking to every section by its anchor, At a glance first, per VOICE.md. Register the entry in `src/content/index.ts`. When a page needs a pattern no shared component covers, build it in `src/components/wiki/` from brand tokens, so the next entry inherits it. The wiki holds information, not the source project: never copy the source's code, dependencies or runtime into this repo, and never call an API from a page. Interactive figures on the explainer are fine when they run on example values baked into the page and labelled as examples. The tech page may carry **one** code snippet, shown in a `CodeBlock`, that captures the core idea (e.g. the single API call); it is displayed, not run.
 
-**Done when** all five files exist, the entry is registered, the tech view's `PageIndex` lists every section after At a glance with ids that match, and every fact on both pages traces to a line in the brief.
+**Done when** all five files exist, the entry is registered, the tech view's `PageIndex` sits at the top and lists every section, At a glance first, with ids that match, and every fact on both pages traces to a line in the brief.
 
 ## 5. Verify
 

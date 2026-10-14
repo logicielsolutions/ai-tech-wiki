@@ -7,7 +7,8 @@ export type PageIndexItem = {
 };
 
 /**
- * "On this page": the tech view's index, placed right after At a glance. Every entry links to an anchor on the
+ * "On this page": the tech view's index, at the very top of the page, listing At a glance and every section after it.
+ * Every entry links to an anchor on the
  * same page; sections and sub-headings already carry `scroll-mt` so the target clears the sticky top bar.
  */
 export function PageIndex({ items }: { items: PageIndexItem[] }) {

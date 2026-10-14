@@ -101,8 +101,8 @@ Cast for every figure: the **camera** (the frozen base model, `fill`), the **cli
 8. **Going deeper**: link to the tech view
 
 ### Tech (reader: AI engineers)
+0. **On this page**: `PageIndex` at the top, linking At a glance and every section, with the four Evaluation sub-sections (added 14 Oct 2026 with the skill change)
 1. **At a glance**: DataTable: what, methods compared, models, stack, hardware, status, owner, sources
-1a. **On this page**: `PageIndex` linking every section below, with the four Evaluation sub-sections (added 14 Oct 2026 with the skill change)
 2. **Architecture**: diagram: data build → leak check → train (one flag) → frozen eval harness → merge/export → guarded serve; walkthrough
 3. **Core mechanism**: LoRA in two sentences (W + BA, rank r, α scaling), QLoRA (NF4 base, double-quant, adapters in 16-bit), full fine-tuning; the config table; the one code snippet
 4. **Key decisions and trade-offs**: DataTable decision / reason / rejected

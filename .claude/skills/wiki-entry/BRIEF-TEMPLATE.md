@@ -48,7 +48,7 @@ Copy into `src/content/<slug>/brief.md`. Each field holds a fact plus where it c
 ### Explainer
 1. ...
 ### Tech
+0. On this page (index at the top: At a glance, then every section)
 1. At a glance
-2. On this page (index of the sections below)
-3. ...
+2. ...
 ```
