@@ -1,4 +1,4 @@
-import { Callout, Code, CodeBlock, DataTable, Figure, KeyNumber, KeyNumbers, Prose, Section } from "@/components/wiki";
+import { Callout, Code, CodeBlock, DataTable, Figure, KeyNumber, KeyNumbers, PageIndex, Prose, Section } from "@/components/wiki";
 
 /** The machine block of the source's example contract (factory-template/contract/example.contract.json), trimmed. */
 const CONTRACT = `{
@@ -125,6 +125,19 @@ export default function Tech() {
           ]}
         />
       </Section>
+
+      <PageIndex
+        items={[
+          { id: "architecture", title: "Architecture" },
+          { id: "mechanism", title: "Core mechanism" },
+          { id: "decisions", title: "Key decisions and trade-offs" },
+          { id: "evaluation", title: "Evaluation" },
+          { id: "limits", title: "Limits and risks" },
+          { id: "run", title: "Run it yourself" },
+          { id: "next", title: "Open questions and next steps" },
+          { id: "sources", title: "Sources" },
+        ]}
+      />
 
       <Section id="architecture" title="Architecture">
         <Figure scroll caption="The template applies everything over Paperclip's REST API and installs the agent runtime. Each run nests three layers. The decision to stop is carried out on the server side, by the guard.">
