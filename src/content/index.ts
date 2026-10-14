@@ -15,15 +15,20 @@ import { meta as loraFineTuningMeta } from "./lora-fine-tuning/meta";
 import LoraFineTuningArt from "./lora-fine-tuning/art";
 import LoraFineTuningExplainer from "./lora-fine-tuning/explainer";
 import LoraFineTuningTech from "./lora-fine-tuning/tech";
+import { meta as paperclipFactoryMeta } from "./paperclip-factory/meta";
+import PaperclipFactoryArt from "./paperclip-factory/art";
+import PaperclipFactoryExplainer from "./paperclip-factory/explainer";
+import PaperclipFactoryTech from "./paperclip-factory/tech";
 
 /** The shared tag set. Add a tag only when none of these fit. */
-export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning"] as const;
+export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning", "governance"] as const;
 
 export const entries: Entry[] = [
   { meta: decisionsApiMeta, Art: DecisionsApiArt, Explainer: DecisionsApiExplainer, Tech: DecisionsApiTech },
   { meta: evalsMeta, Art: EvalsArt, Explainer: EvalsExplainer, Tech: EvalsTech },
   { meta: miraMcpMeta, Art: MiraMcpArt, Explainer: MiraMcpExplainer, Tech: MiraMcpTech },
   { meta: loraFineTuningMeta, Art: LoraFineTuningArt, Explainer: LoraFineTuningExplainer, Tech: LoraFineTuningTech },
+  { meta: paperclipFactoryMeta, Art: PaperclipFactoryArt, Explainer: PaperclipFactoryExplainer, Tech: PaperclipFactoryTech },
 ];
 
 export function getEntry(slug: string): Entry | undefined {

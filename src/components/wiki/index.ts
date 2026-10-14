@@ -17,3 +17,5 @@ export { Tag } from "./tag";
 export { Term } from "./term";
 export { Tiles } from "./tiles";
 export { ViewSwitch } from "./view-switch";
+export { Arrow, Label, Person } from "./art-kit";
+export { OutcomePicker, type Outcome, type OutcomeChoice } from "./outcome-picker";
