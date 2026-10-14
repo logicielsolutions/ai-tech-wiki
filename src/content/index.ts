@@ -19,9 +19,13 @@ import { meta as paperclipFactoryMeta } from "./paperclip-factory/meta";
 import PaperclipFactoryArt from "./paperclip-factory/art";
 import PaperclipFactoryExplainer from "./paperclip-factory/explainer";
 import PaperclipFactoryTech from "./paperclip-factory/tech";
+import { meta as aiVideoMeta } from "./ai-video/meta";
+import AiVideoArt from "./ai-video/art";
+import AiVideoExplainer from "./ai-video/explainer";
+import AiVideoTech from "./ai-video/tech";
 
 /** The shared tag set. Add a tag only when none of these fit. */
-export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning", "governance"] as const;
+export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning", "governance", "video"] as const;
 
 export const entries: Entry[] = [
   { meta: decisionsApiMeta, Art: DecisionsApiArt, Explainer: DecisionsApiExplainer, Tech: DecisionsApiTech },
@@ -29,6 +33,7 @@ export const entries: Entry[] = [
   { meta: miraMcpMeta, Art: MiraMcpArt, Explainer: MiraMcpExplainer, Tech: MiraMcpTech },
   { meta: loraFineTuningMeta, Art: LoraFineTuningArt, Explainer: LoraFineTuningExplainer, Tech: LoraFineTuningTech },
   { meta: paperclipFactoryMeta, Art: PaperclipFactoryArt, Explainer: PaperclipFactoryExplainer, Tech: PaperclipFactoryTech },
+  { meta: aiVideoMeta, Art: AiVideoArt, Explainer: AiVideoExplainer, Tech: AiVideoTech },
 ];
 
 export function getEntry(slug: string): Entry | undefined {
