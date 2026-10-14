@@ -1,4 +1,4 @@
-import { BulletList, Callout, Code, CodeBlock, DataTable, Figure, KeyNumber, KeyNumbers, Prose, Section, SubHeading } from "@/components/wiki";
+import { BulletList, Callout, Code, CodeBlock, DataTable, Figure, KeyNumber, KeyNumbers, PageIndex, Prose, Section, SubHeading } from "@/components/wiki";
 
 const SNIPPET = `# src/train.py: the whole LoRA vs QLoRA experiment is this one flag
 LORA_R, LORA_ALPHA, LORA_DROPOUT = 16, 32, 0          # α = 2r
@@ -94,6 +94,28 @@ export default function Tech() {
           ]}
         />
       </Section>
+
+      <PageIndex
+        items={[
+          { id: "architecture", title: "Architecture" },
+          { id: "mechanism", title: "Core mechanism" },
+          { id: "decisions", title: "Key decisions and trade-offs" },
+          {
+            id: "evaluation",
+            title: "Evaluation",
+            children: [
+              { id: "sql", title: "LoRA vs QLoRA: text-to-SQL (Llama-3.2-3B)" },
+              { id: "voice", title: "LoRA vs QLoRA: character voice (Llama-3.2-1B)" },
+              { id: "full", title: "Full fine-tuning" },
+              { id: "failures", title: "Failure modes" },
+            ],
+          },
+          { id: "limits", title: "Limits and risks" },
+          { id: "run", title: "Run it yourself" },
+          { id: "next", title: "Open questions and next steps" },
+          { id: "sources", title: "Sources" },
+        ]}
+      />
 
       <Section id="architecture" title="Architecture">
         <Figure scroll caption="The text-to-SQL study. The two training arms are identical except for load_in_4bit; everything downstream is shared.">
