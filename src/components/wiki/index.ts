@@ -15,4 +15,5 @@ export { BulletList, Prose, Section, SubHeading } from "./section";
 export { Step, Steps } from "./steps";
 export { Tag } from "./tag";
 export { Term } from "./term";
+export { Tiles } from "./tiles";
 export { ViewSwitch } from "./view-switch";
