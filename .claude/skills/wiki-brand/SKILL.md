@@ -5,7 +5,7 @@ description: AI Tech Wiki design system, illustration style and writing voice. L
 
 # Wiki brand
 
-The wiki's look is **Apple-style**: clean white (or true black) pages, the system font, one blue accent, big confident headlines with tight tracking, soft rounded tiles instead of boxed cards, generous whitespace, and quick, physical feedback. Every page across every entry looks like it came from one hand. This file is the spec; it changes only when the owner asks, and the change lands here before it lands in code. (Owner decision, 12 Oct 2026: replaced the earlier editorial look with Apple-style design, per the `apple-design` skill.) (Change, 14 Oct 2026, proposed for the owner's review: every tech view carries an "On this page" index right after At a glance; see VOICE.md.)
+The wiki's look is **Apple-style**: clean white (or true black) pages, the system font, one blue accent, big confident headlines with tight tracking, soft rounded tiles instead of boxed cards, generous whitespace, and quick, physical feedback. Every page across every entry looks like it came from one hand. This file is the spec; it changes only when the owner asks, and the change lands here before it lands in code. (Owner decision, 12 Oct 2026: replaced the earlier editorial look with Apple-style design, per the `apple-design` skill.) (Change, 14 Oct 2026, proposed for the owner's review: every tech view opens with an "On this page" index at the very top, listing At a glance and every section after it; see VOICE.md.)
 
 Two companion references, read when the branch applies:
 

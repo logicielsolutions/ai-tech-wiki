@@ -106,6 +106,20 @@ function ArchitectureDiagram() {
 export default function Tech() {
   return (
     <>
+      <PageIndex
+        items={[
+          { id: "glance", title: "At a glance" },
+          { id: "architecture", title: "Architecture" },
+          { id: "mechanism", title: "Core mechanism" },
+          { id: "decisions", title: "Key decisions and trade-offs" },
+          { id: "evaluation", title: "Evaluation" },
+          { id: "limits", title: "Limits and risks" },
+          { id: "run", title: "Run it yourself" },
+          { id: "next", title: "Open questions and next steps" },
+          { id: "sources", title: "Sources" },
+        ]}
+      />
+
       <Section id="glance" title="At a glance">
         <DataTable
           columns={["Item", "Detail"]}
@@ -125,19 +139,6 @@ export default function Tech() {
           ]}
         />
       </Section>
-
-      <PageIndex
-        items={[
-          { id: "architecture", title: "Architecture" },
-          { id: "mechanism", title: "Core mechanism" },
-          { id: "decisions", title: "Key decisions and trade-offs" },
-          { id: "evaluation", title: "Evaluation" },
-          { id: "limits", title: "Limits and risks" },
-          { id: "run", title: "Run it yourself" },
-          { id: "next", title: "Open questions and next steps" },
-          { id: "sources", title: "Sources" },
-        ]}
-      />
 
       <Section id="architecture" title="Architecture">
         <Figure scroll caption="The template applies everything over Paperclip's REST API and installs the agent runtime. Each run nests three layers. The decision to stop is carried out on the server side, by the guard.">
