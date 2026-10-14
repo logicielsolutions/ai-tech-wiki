@@ -10,7 +10,7 @@ export { Figure } from "./figure";
 export { KeyNumber, KeyNumbers } from "./key-number";
 export { OddsBar } from "./odds-bar";
 export { PageShell } from "./page-shell";
-export { Prose, Section } from "./section";
+export { BulletList, Prose, Section, SubHeading } from "./section";
 export { Step, Steps } from "./steps";
 export { Tag } from "./tag";
 export { Term } from "./term";
