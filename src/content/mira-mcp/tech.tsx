@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BulletList, Callout, Code, CodeBlock, DataTable, Figure, Prose, Section, SubHeading } from "@/components/wiki";
+import { BulletList, Callout, Code, CodeBlock, DataTable, Figure, PageIndex, Prose, Section, SubHeading } from "@/components/wiki";
 import { ArchitectureFigure } from "./figures";
 
 const CHALLENGE = `# 1. The client knocks with nothing.
@@ -43,6 +43,31 @@ export default function Tech() {
           </p>
         </Prose>
       </Section>
+
+      <PageIndex
+        items={[
+          { id: "architecture", title: "Architecture" },
+          {
+            id: "mechanism",
+            title: "Core mechanism",
+            children: [
+              { id: "handshake", title: "The handshake that needs no pre-registration" },
+              { id: "audiences", title: "Two audiences, one keypair" },
+              { id: "tools", title: "The four tools" },
+            ],
+          },
+          { id: "decisions", title: "Key decisions and trade-offs" },
+          {
+            id: "evaluation",
+            title: "Evaluation",
+            children: [{ id: "cases", title: "The cases the design names as mandatory" }],
+          },
+          { id: "limits", title: "Limits and risks" },
+          { id: "run", title: "Run it yourself" },
+          { id: "next", title: "Open questions and next steps" },
+          { id: "sources", title: "Sources" },
+        ]}
+      />
 
       <Section id="architecture" title="Architecture">
         <Prose>
