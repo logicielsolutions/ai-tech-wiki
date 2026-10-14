@@ -20,3 +20,17 @@ export function Prose({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+/** A sub-heading inside a long section (tech view), with its own anchor. */
+export function SubHeading({ id, children }: { id: string; children: ReactNode }) {
+  return (
+    <h3 id={id} className="mt-6 max-w-[68ch] scroll-mt-20 text-[1.25rem] leading-snug tracking-[-0.01em]">
+      {children}
+    </h3>
+  );
+}
+
+/** A plain bulleted list, for use inside Prose. */
+export function BulletList({ children }: { children: ReactNode }) {
+  return <ul className="flex list-disc flex-col gap-2 pl-5">{children}</ul>;
+}
