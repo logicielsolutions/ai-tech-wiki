@@ -5,7 +5,7 @@ description: AI Tech Wiki design system, illustration style and writing voice. L
 
 # Wiki brand
 
-The wiki's look is **Apple-style**: clean white (or true black) pages, the system font, one blue accent, big confident headlines with tight tracking, soft rounded tiles instead of boxed cards, generous whitespace, and quick, physical feedback. Every page across every entry looks like it came from one hand. This file is the spec; it changes only when the owner asks, and the change lands here before it lands in code. (Owner decision, 12 Oct 2026: replaced the earlier editorial look with Apple-style design, per the `apple-design` skill.)
+The wiki's look is **Apple-style**: clean white (or true black) pages, the system font, one blue accent, big confident headlines with tight tracking, soft rounded tiles instead of boxed cards, generous whitespace, and quick, physical feedback. Every page across every entry looks like it came from one hand. This file is the spec; it changes only when the owner asks, and the change lands here before it lands in code. (Owner decision, 12 Oct 2026: replaced the earlier editorial look with Apple-style design, per the `apple-design` skill.) (Change, 14 Oct 2026, proposed for the owner's review: every tech view carries an "On this page" index right after At a glance; see VOICE.md.)
 
 Two companion references, read when the branch applies:
 
@@ -67,7 +67,7 @@ Quick and physical, never decorative.
 
 ## Components
 
-Entries are composed from `src/components/wiki/`. Reach for an existing component first; when a new pattern is needed, add it there, styled from these tokens, so the next entry inherits it. Expected building blocks: `EntryCard`, `EntryHeader`, `Section`, `Figure` (visual + caption), `Steps` / `Step`, `Analogy`, `Term` (plain-word definition on hover/tap), `Callout` (note / limit / warning), `KeyNumber`, `Compare` (side-by-side), `CodeBlock`, `DataTable`, `ViewSwitch`.
+Entries are composed from `src/components/wiki/`. Reach for an existing component first; when a new pattern is needed, add it there, styled from these tokens, so the next entry inherits it. Expected building blocks: `EntryCard`, `EntryHeader`, `Section`, `Figure` (visual + caption), `Steps` / `Step`, `Analogy`, `Term` (plain-word definition on hover/tap), `Callout` (note / limit / warning), `KeyNumber`, `Compare` (side-by-side), `CodeBlock`, `DataTable`, `ViewSwitch`, `PageIndex` (the tech view's "On this page" index: a `surface` tile, numbered accent links, two columns from `md`; anchors glide into place with smooth scrolling unless reduced motion is on).
 
 ## Done when
 

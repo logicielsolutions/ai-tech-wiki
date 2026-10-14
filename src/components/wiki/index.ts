@@ -9,6 +9,7 @@ export { EntryHeader } from "./entry-header";
 export { Figure } from "./figure";
 export { KeyNumber, KeyNumbers } from "./key-number";
 export { OddsBar } from "./odds-bar";
+export { PageIndex, type PageIndexItem } from "./page-index";
 export { PageShell } from "./page-shell";
 export { BulletList, Prose, Section, SubHeading } from "./section";
 export { Step, Steps } from "./steps";

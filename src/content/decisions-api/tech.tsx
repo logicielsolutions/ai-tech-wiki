@@ -1,4 +1,4 @@
-import { Callout, Code, CodeBlock, DataTable, Figure, KeyNumber, KeyNumbers, Prose, Section } from "@/components/wiki";
+import { Callout, Code, CodeBlock, DataTable, Figure, KeyNumber, KeyNumbers, PageIndex, Prose, Section } from "@/components/wiki";
 
 const SNIPPET = `import OpenAI from "openai"; // openai@7.30 added client.decisions
 
@@ -126,6 +126,19 @@ export default function Tech() {
           ]}
         />
       </Section>
+
+      <PageIndex
+        items={[
+          { id: "architecture", title: "Architecture" },
+          { id: "mechanism", title: "Core mechanism" },
+          { id: "decisions", title: "Key decisions and trade-offs" },
+          { id: "evaluation", title: "Evaluation" },
+          { id: "limits", title: "Limits and risks" },
+          { id: "run", title: "Run it yourself" },
+          { id: "next", title: "Open questions and next steps" },
+          { id: "sources", title: "Sources" },
+        ]}
+      />
 
       <Section id="architecture" title="Architecture">
         <Figure scroll caption="Every OpenAI call goes through lib/gateway*.ts. Tests swap in a fake; mock mode swaps in seeded canned answers.">
