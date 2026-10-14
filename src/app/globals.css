@@ -85,3 +85,10 @@ table {
     animation-duration: 0ms !important;
   }
 }
+
+/* In-page links (the tech view's "On this page" index) glide to their section unless reduced motion is on. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

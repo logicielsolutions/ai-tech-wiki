@@ -7,6 +7,7 @@ import {
   Figure,
   KeyNumber,
   KeyNumbers,
+  PageIndex,
   Prose,
   Section,
   SubHeading as Sub,
@@ -149,6 +150,31 @@ export default function Tech() {
           ]}
         />
       </Section>
+
+      <PageIndex
+        items={[
+          { id: "words", title: "Words you'll meet" },
+          { id: "architecture", title: "The eval loop" },
+          {
+            id: "mechanism",
+            title: "Core mechanism",
+            children: [
+              { id: "choose", title: "Choose the eval by what can be checked" },
+              { id: "golden", title: "Golden datasets" },
+              { id: "judge", title: "LLM-as-judge" },
+              { id: "ragas", title: "RAGAS and the derived accuracy" },
+              { id: "retrieval", title: "Search (retrieval) metrics" },
+              { id: "langfuse", title: "Production scoring with Langfuse" },
+            ],
+          },
+          { id: "decisions", title: "Key decisions and trade-offs" },
+          { id: "evaluation", title: "What the evidence says" },
+          { id: "limits", title: "Pitfalls we paid for" },
+          { id: "run", title: "Starter checklist" },
+          { id: "next", title: "What this page doesn't cover yet" },
+          { id: "sources", title: "Sources" },
+        ]}
+      />
 
       <Section id="words" title="Words you'll meet">
         <DataTable
