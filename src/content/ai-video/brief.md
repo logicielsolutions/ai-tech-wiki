@@ -151,4 +151,4 @@ Shut-down tools (Sora), "fallen behind" commentary, and 2026 "what changed" news
 6. **Limits and risks**: failure modes, cost multiplier, commercial-use traps, prices change monthly, tiny legal note.
 7. **Run it yourself**: pricing table with official links; cheapest way to experiment; recommended team setup; workflow from brief to export.
 8. **Open questions / next steps**: rankings shift monthly, JSON vs prose untested, re-check prices before buying.
-9. **Sources**: official vendor pages and guides.
+

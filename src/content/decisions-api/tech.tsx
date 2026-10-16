@@ -120,7 +120,6 @@ export default function Tech() {
           { id: "limits", title: "Limits and risks" },
           { id: "run", title: "Run it yourself" },
           { id: "next", title: "Open questions and next steps" },
-          { id: "sources", title: "Sources" },
         ]}
       />
 
@@ -363,21 +362,6 @@ export default function Tech() {
             <li>Approve the eval labels for both roles, then regenerate each fixture rubric through the app and re-freeze it.</li>
             <li>The eval doubles as a Luna baseline for a planned fine-tuned BERT-class typed decision model.</li>
             <li>Push the repo to a remote.</li>
-          </ul>
-        </Prose>
-      </Section>
-
-      <Section id="sources" title="Sources">
-        <Prose>
-          <p>All in the source repo, which is local only:</p>
-          <ul className="flex list-disc flex-col gap-2 pl-5">
-            <li><Code>README.md</Code>: setup, concepts, scorecard and dev panel guide</li>
-            <li><Code>HANDOFF.md</Code>: how it was built, decisions, open items, gotchas</li>
-            <li><Code>docs/PLAN.md</Code>: build plan, data model, risks</li>
-            <li><Code>docs/decisions-api-cheatsheet.md</Code>: request and response shapes and limits</li>
-            <li><Code>lib/decisions/build-questions.ts</Code>, <Code>lib/decisions/scorecard.ts</Code>, <Code>lib/lab.ts</Code></li>
-            <li><Code>eval-report.md</Code>: the live eval, 10 Oct 2026</li>
-            <li><Code>openai</Code> npm 7.30, <Code>src/resources/decisions.ts</Code>: the SDK the shapes were checked against</li>
           </ul>
         </Prose>
       </Section>

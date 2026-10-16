@@ -99,7 +99,7 @@ Source shorthand used below:
 6. **Limits and risks** (`limits`) — access tokens verified by signature, so revocation is not instant (up to an hour); self-reported `client_name` vs the honest `client_id`; SSO users only; 30-day refresh lifetime chosen to match the external share default and explicitly provisional; the wrong-but-present config value failing differently from a missing one.
 7. **Run it yourself** (`run`) — the connect URL, the three client recipes (`claude mcp add --transport http mira …`, Claude Desktop connector, Cursor), staging URL, the `MCP_*` variables by name only, the migration `0023_mcp_oauth.sql` and its three tables, and the kill switch needing both services.
 8. **Open questions and next steps** (`next`) — write tools (scope gating + agent-attributed audit rows) and refresh-token lifetime.
-9. **Sources** (`sources`) — spec, plan, connect guide, runbook, `server.ts` / `format.ts` / `callQueries.ts`; modelcontextprotocol.io; RFC 9728 / 7591 / 7009; the 2026-07-28 revision that made CIMD primary.
+
 
 ## As built (14 Oct 2026)
 

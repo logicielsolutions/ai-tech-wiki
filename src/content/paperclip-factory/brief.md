@@ -139,7 +139,7 @@ Approved by the person on 14 Oct 2026 ("yes, build it") (asked: 14 Oct 2026). Ca
 6. **Limits and risks**: authenticated mode not on (MF-01); enforcement off on the live instance during testing; sandbox residual gaps (MF-10); Buzz sign-off strength and key custody (MF-11); budgets can't stop subscription runs; Paperclip version churn (MF-06); wrong-but-plausible output; test repos and credentials only.
 7. **Run it yourself**: prerequisites; the commands (`npm test`, copy the example config, `bin/setup` dry run then `--apply`, `bin/bootstrap` plans 0); module switches table with the values doc 22 recommends for a developer; env var, secret and config names only.
 8. **Open questions / next steps**: rollout paused (D-52); hand-over phases 3–5b; GitHub App setup; real client pilot; release gate 6.8; review of agent-taken decisions.
-9. **Sources**: repo-relative paths (PRD, docs 02–04, 11–14, 16–22, briefings, template README, contract spec) and the public links: Paperclip, `srt`, Buzz.
+
 
 ## Build notes
 - Built 14 Oct 2026 after the outline approval. Two new shared pieces in `src/components/wiki/`: `OutcomePicker` (pick an action, see its outcome; example values only) and `art-kit.tsx` (`Person`, `Arrow`, `Label`, promoted from the Luna entry's cast now that a second entry uses them; the Luna entry re-exports them unchanged).
