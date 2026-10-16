@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BulletList, Callout, Code, CodeBlock, DataTable, Figure, PageIndex, Prose, Section, SubHeading } from "@/components/wiki";
 import { ArchitectureFigure } from "./figures";
 
@@ -40,7 +39,6 @@ export default function Tech() {
           { id: "limits", title: "Limits and risks" },
           { id: "run", title: "Run it yourself" },
           { id: "next", title: "Open questions and next steps" },
-          { id: "sources", title: "Sources" },
         ]}
       />
 
@@ -374,36 +372,6 @@ export default function Tech() {
               four query functions.
             </li>
           </BulletList>
-        </Prose>
-      </Section>
-
-      <Section id="sources" title="Sources">
-        <Prose>
-          <BulletList>
-            <li>
-              <Code>docs/superpowers/specs/2026-08-14-mcp-server-design.md</Code> — the design, including the shared
-              query layer revision made during planning
-            </li>
-            <li>
-              <Code>docs/superpowers/plans/2026-08-14-mcp-server.md</Code> — the implementation plan
-            </li>
-            <li>
-              <Code>docs/connect-mcp.md</Code> (for everyone) and <Code>docs/runbooks/mcp-server.md</Code> (operators:
-              kill switch, revokes, incident diagnosis)
-            </li>
-            <li>
-              <Code>apps/api/src/mcp/server.ts</Code>, <Code>apps/api/src/mcp/format.ts</Code>,{" "}
-              <Code>apps/api/src/lib/callQueries.ts</Code>, <Code>apps/api/src/lib/rbac.ts</Code>
-            </li>
-            <li>
-              <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a> — the protocol, and the 2026-07-28
-              revision that made Client ID Metadata Documents primary
-            </li>
-            <li>RFC 9728 (protected resource metadata), RFC 7591 (DCR), RFC 7009 (revocation)</li>
-          </BulletList>
-          <p>
-            <Link href="/wiki/mira-mcp">Back to the explainer</Link>.
-          </p>
         </Prose>
       </Section>
     </>

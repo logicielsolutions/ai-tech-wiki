@@ -97,7 +97,6 @@ export default function Tech() {
           { id: "limits", title: "Limits and risks" },
           { id: "run", title: "Run it yourself" },
           { id: "next", title: "Open questions and next steps" },
-          { id: "sources", title: "Sources" },
         ]}
       />
 
@@ -373,24 +372,6 @@ export default function Tech() {
             <li>Ablate the 50/50 easy/hard blend; add abstention for unanswerable questions.</li>
             <li>Score the GGUF export; measure serving latency.</li>
             <li>Copy the sentiment and character-voice Colab exports into their repos.</li>
-          </BulletList>
-        </Prose>
-      </Section>
-
-      <Section id="sources" title="Sources">
-        <Prose>
-          <p>All local, no remotes:</p>
-          <BulletList>
-            <li><Code>fine-tuning/src/train.py</Code>, <Code>src/evaluate.py</Code>: the training config and the frozen harness</li>
-            <li><Code>fine-tuning/results/*.json</Code>, <Code>comparison.csv</Code>, <Code>run_summary_v1.md</Code>, <Code>mmlu.json</Code>: SQL results</li>
-            <li><Code>fine-tuning/FINAL_EVALUATION.md</Code>, <Code>FINDINGS.md</Code>, <Code>Fine-Tuning-Evaluation-Report.pdf</Code> (BIRD error breakdown)</li>
-            <li><Code>fine-tuning/sentiment/</Code> and the Colab exports <Code>bert_ablation_sentiment.zip</Code>, <Code>encoder_ablation_sentiment.zip</Code></li>
-            <li>Character voice: Colab export <Code>persona_sprint_results/eval_results/</Code>; notebooks in <Code>finetuning-sprint/persona/</Code></li>
-            <li><Code>finetuning-sprint/finetuning-real-usecases/mac-actions/</Code> (<Code>data/v1/golden_model_a.jsonl</Code>, <Code>golden_model_b.jsonl</Code>)</li>
-            <li><Code>finetuning-sprint/finetuning-real-usecases/spam-detection/models/v5/metrics.json</Code></li>
-            <li><Code>finetuning-sprint/model-merging/</Code> (<Code>FINDINGS.md</Code>, <Code>results-v2/</Code>)</li>
-            <li><Code>finetuning-sprint/FINE_TUNING_PRINCIPLES.md</Code>; note that <Code>FINE_TUNING_LEARNINGS.md</Code> swaps the LoRA and QLoRA SQL rows (the raw files above are correct)</li>
-            <li>Papers: LoRA (Hu et al., 2021); QLoRA (Dettmers et al., 2023). Benchmarks: BIRD, TweetEval, GLUE, MMLU</li>
           </BulletList>
         </Prose>
       </Section>

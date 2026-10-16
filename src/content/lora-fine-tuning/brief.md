@@ -110,4 +110,4 @@ Cast for every figure: the **camera** (the frozen base model, `fill`), the **cli
 6. **Limits and risks**
 7. **Run it yourself**: commands table
 8. **Open questions and next steps**
-9. **Sources**: repo files, Colab exports, papers
+
