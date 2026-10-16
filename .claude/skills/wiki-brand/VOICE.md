@@ -43,7 +43,8 @@ Section order:
 6. **Limits and risks**: technical, cost, safety, policy.
 7. **Run it yourself**: prerequisites and commands.
 8. **Open questions / next steps**.
-9. **Sources**: links to docs, repo files, reports.
+
+No Sources or References section, on either view and not in the `PageIndex`. Facts trace back through the brief, not a list on the page.
 
 When a section is added, renamed or removed, update the `PageIndex` items in the same change, so every link lands on a heading that exists.
 

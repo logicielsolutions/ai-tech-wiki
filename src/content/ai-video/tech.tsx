@@ -144,7 +144,6 @@ export default function Tech() {
             ],
           },
           { id: "next", title: "Open questions" },
-          { id: "sources", title: "Sources" },
         ]}
       />
 
@@ -585,20 +584,6 @@ export default function Tech() {
             <li>JSON vs prose prompts: nobody has published a controlled comparison. Worth testing on our own shots.</li>
             <li>We have no in-house tries-per-keeper numbers yet; the ratios above come from published workflows.</li>
             <li>Prices marked † in the pricing table couldn&apos;t be confirmed on the vendor&apos;s own page.</li>
-          </List>
-        </Prose>
-      </Section>
-
-      <Section id="sources" title="Sources">
-        <Prose>
-          <List>
-            <li><Ext href="https://artificialanalysis.ai/video/leaderboard/text-to-video">Artificial Analysis video leaderboard</Ext></li>
-            <li><Ext href="https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-veo-3-1">Google Cloud: Ultimate prompting guide for Veo 3.1</Ext></li>
-            <li><Ext href="https://lumalabs.ai/learning-center">Luma learning center</Ext></li>
-            <li><Ext href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing (Veo)</Ext></li>
-            <li><Ext href="https://runway.com/pricing">Runway pricing</Ext></li>
-            <li><Ext href="https://fal.ai/pricing">fal.ai pricing</Ext></li>
-            <li>Vendor pages linked in the pricing table above</li>
           </List>
         </Prose>
       </Section>

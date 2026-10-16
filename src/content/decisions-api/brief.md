@@ -106,7 +106,7 @@
 6. **Limits and risks**: confidence vs accuracy, employment-decision policy, data to OpenAI, injection, protected attributes, file limits, beta API shape, not an authorization boundary.
 7. **Run it yourself**: prerequisites, commands, env var names.
 8. **Open questions / next steps**: parked; open live checks, label approval, re-freeze rubrics, Luna baseline for a planned BERT-class model.
-9. **Sources**: source-repo file paths and the openai SDK file.
+
 
 ## Build notes
 - Design: Apple-style brand per the owner's request (asked: 12 Oct 2026); landed in the wiki-brand skill first.
