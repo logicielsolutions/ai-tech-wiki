@@ -207,4 +207,4 @@ Source shorthand used below:
 6. **Limits and risks: pitfalls we paid for**: errored rows dropped (93.8% → 26.7%); grader bugs; infra posing as model quality; NaN → 1.0; RAGAS None shrinking n; boilerplate graded; eval traffic in prod traces; orphan judge traces (~14×); numbers from unshipped branches; one canonical number; groundedness ≠ truth; synthetic-only sets; privacy.
 7. **Run it yourself: starter checklist**: ten steps for a new project (define the bar and the selection rule → build the key with trap cases → harness that saves raw outputs and re-grades for free → 3 runs → graders → report rows → statistics → CI smoke → Langfuse tracing + off-path scoring → review queue → regression file), plus reference commands and env var names from the RAG Library skill and the policy bot harness.
 8. **What this page doesn't cover yet** (rewritten from open questions after review): business-owned golden sets; Langfuse Datasets/Experiments unused; systematic judge calibration; blind listener panel for voice.
-9. **Sources**: Confluence TAB page titles (no links); source repo file paths.
+

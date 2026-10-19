@@ -121,7 +121,6 @@ export default function Tech() {
           { id: "limits", title: "Pitfalls we paid for" },
           { id: "run", title: "Starter checklist" },
           { id: "next", title: "What this page doesn't cover yet" },
-          { id: "sources", title: "Sources" },
         ]}
       />
 
@@ -872,16 +871,6 @@ export default function Tech() {
             threshold here.
           </p>
         </Callout>
-      </Section>
-
-      <Section id="sources" title="Sources">
-        <Prose>
-          <p>
-            Internal write-ups in the AI Practice&apos;s Confluence space, the source repos behind each system, and the
-            team&apos;s session and meeting notes, May to October 2026. Every fact on this page traces to a line in the
-            entry&apos;s brief.
-          </p>
-        </Prose>
       </Section>
     </>
   );

@@ -116,7 +116,6 @@ export default function Tech() {
           { id: "limits", title: "Limits and risks" },
           { id: "run", title: "Run it yourself" },
           { id: "next", title: "Open questions and next steps" },
-          { id: "sources", title: "Sources" },
         ]}
       />
 
@@ -392,28 +391,6 @@ export default function Tech() {
             <li>A real client channel and a pilot from conversation to pull request, with one staged rule break.</li>
             <li>The release gate: authenticated mode and every other mandatory fix, enforcement switched on for the live instance, then the template release.</li>
             <li>The operator reviews the decisions agents took on their own during the testing phase.</li>
-          </ul>
-        </Prose>
-      </Section>
-
-      <Section id="sources" title="Sources">
-        <Prose>
-          <p>In the source repo, which is local only:</p>
-          <ul className="flex list-disc flex-col gap-2 pl-5">
-            <li><Code>docs/2026-09-28-10-factory-rollout-prd.md</Code>: principles, steps, decisions register</li>
-            <li><Code>docs/2026-09-28-02-security-and-governance-findings.md</Code>, <Code>-03-governance-design.md</Code>, <Code>-04-governance-tooling-evaluation.md</Code></li>
-            <li><Code>docs/2026-09-28-11-plugins-and-alternatives-review.md</Code>, <Code>-12-review-verification-and-template-decision.md</Code>, <Code>-13-agent-isolation-srt-decision.md</Code></li>
-            <li><Code>docs/2026-09-28-14-mandatory-fixes-before-production.md</Code></li>
-            <li>Docs 16 to 21: Buzz research, the notifier and two-way bridge labs, Orca and CopilotKit comparisons</li>
-            <li><Code>docs/2026-10-14-22-template-handover-plan.md</Code> and <Code>docs/evidence/handover-phase-2/report.md</Code></li>
-            <li><Code>docs/briefing/</Code>: the manager briefings</li>
-            <li><Code>factory-template/README.md</Code>, <Code>factory-template/BUNDLE-README.md</Code>, <Code>factory-template/contract/SPEC.md</Code></li>
-          </ul>
-          <p>Public projects:</p>
-          <ul className="flex list-disc flex-col gap-2 pl-5">
-            <li><a href="https://github.com/paperclipai/paperclip">Paperclip</a></li>
-            <li><a href="https://github.com/anthropic-experimental/sandbox-runtime">srt, Anthropic sandbox-runtime</a></li>
-            <li><a href="https://github.com/block/buzz">Buzz</a></li>
           </ul>
         </Prose>
       </Section>

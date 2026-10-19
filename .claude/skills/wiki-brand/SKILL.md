@@ -5,12 +5,18 @@ description: AI Tech Wiki design system, illustration style and writing voice. L
 
 # Wiki brand
 
-The wiki's look is **Apple-style**: clean white (or true black) pages, the system font, one blue accent, big confident headlines with tight tracking, soft rounded tiles instead of boxed cards, generous whitespace, and quick, physical feedback. Every page across every entry looks like it came from one hand. This file is the spec; it changes only when the owner asks, and the change lands here before it lands in code. (Owner decision, 12 Oct 2026: replaced the earlier editorial look with Apple-style design, per the `apple-design` skill.) (Change, 14 Oct 2026, proposed for the owner's review: every tech view opens with an "On this page" index at the very top, listing At a glance and every section after it; see VOICE.md.)
+The wiki's look is **Apple-style**: clean white (or true black) pages, the system font, one blue accent, big confident headlines with tight tracking, soft rounded tiles instead of boxed cards, generous whitespace, and quick, physical feedback. Every page across every entry looks like it came from one hand. This file is the spec; it changes only when the owner asks, and the change lands here before it lands in code.
 
-Two companion references, read when the branch applies:
+Decisions so far (add each new one here, dated):
+
+- 12 Oct 2026: Apple-style design replaced the earlier editorial look, per the `apple-design` skill.
+- 14 Oct 2026: every tech view opens with an "On this page" index at the very top, listing At a glance and every section after it (VOICE.md; PR #8).
+- 16 Oct 2026: no Sources or References section on either view, and none in the index (VOICE.md; PR #10).
+
+Two companion references in this folder, read when the branch applies:
 
 - [ILLUSTRATION.md](ILLUSTRATION.md): drawing card art or explainer visuals (SVG).
-- [VOICE.md](VOICE.md): writing any copy, explainer or tech.
+- [VOICE.md](VOICE.md): writing any copy, explainer or tech, and both views' section order.
 
 For motion, materials and interaction feel, also load the `apple-design` skill.
 
@@ -67,7 +73,28 @@ Quick and physical, never decorative.
 
 ## Components
 
-Entries are composed from `src/components/wiki/`. Reach for an existing component first; when a new pattern is needed, add it there, styled from these tokens, so the next entry inherits it. Expected building blocks: `EntryCard`, `EntryHeader`, `Section`, `Figure` (visual + caption), `Steps` / `Step`, `Analogy`, `Term` (plain-word definition on hover/tap), `Callout` (note / limit / warning), `KeyNumber`, `Compare` (side-by-side), `CodeBlock`, `DataTable`, `ViewSwitch`, `PageIndex` (the tech view's "On this page" index: a `surface` tile, numbered accent links, two columns from `md`; anchors glide into place with smooth scrolling unless reduced motion is on).
+Entries are composed from `src/components/wiki/`, imported from `@/components/wiki`. Reach for an existing component first; when a new pattern is needed, add it there, styled from these tokens, export it from `index.ts`, and add it to this list, so the next entry inherits it.
+
+| Component | Use |
+|---|---|
+| `Section` | One section: `id` (the anchor) and `title` (the h2) |
+| `SubHeading` | An anchored h3 inside a long tech section; listed as `children` in the `PageIndex` |
+| `Prose`, `BulletList` | The 68ch reading column, and a plain list inside it |
+| `Figure` | A visual plus its visible caption; `scroll` lets a wide diagram scroll sideways on mobile |
+| `Steps` / `Step` | The explainer's "How it works": numbered, words beside the figure from `md` |
+| `Analogy` | The everyday comparison that opens a concept ("Think of it like this") |
+| `Term` | A word with its plain-word definition on hover, focus or tap |
+| `Callout` | A note, limit or warning |
+| `KeyNumber` / `KeyNumbers` | Headline numbers in tiles |
+| `Compare`, `Tiles` | Two things side by side; two to four options side by side |
+| `OddsBar` | A label and a probability bar |
+| `OutcomePicker` | Pick an action, see its outcome (allowed, refused, stopped); example values only |
+| `CodeBlock` | The tech view's one code snippet |
+| `Code` | An inline name: API, env var, path. Breaks mid-token so it never forces horizontal scroll |
+| `DataTable` | Hairline table; `numeric` right-aligns number columns, `stack` turns wordy rows into cards below `md` |
+| `PageIndex` | The tech view's "On this page" index: a `surface` tile, numbered accent links, two columns from `md`; anchors glide into place with smooth scrolling unless reduced motion is on |
+| `Person`, `Arrow`, `Label` | Shared art primitives (`art-kit.tsx`) for casts and figures |
+| `PageShell`, `Article`, `EntryHeader`, `EntryCard`, `ViewSwitch`, `Tag` | Page frame, header, list tile and view switch; the routes render these, so entries never do |
 
 ## Done when
 
