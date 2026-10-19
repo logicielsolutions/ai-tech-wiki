@@ -27,5 +27,8 @@ Before drawing, write down the entry's **visual metaphor** in `brief.md`: one se
 
 ## Where art lives
 
-- Card art: `src/content/<slug>/art.tsx`, default export, no props besides `className`.
-- Explainer and tech figures: inside the entry folder, or promoted to `src/components/wiki/` once a second entry wants the same shape.
+- The cast: `src/content/<slug>/cast.tsx`, the metaphor's objects as small SVG components, drawn once. A doc comment at the top names the metaphor and which object carries the accent. Use the shared `Person`, `Arrow` and `Label` from `src/components/wiki/art-kit.tsx` instead of redrawing them.
+- Card art: `src/content/<slug>/art.tsx`, default export, no props besides `className`, built from the cast.
+- Explainer figures: `src/content/<slug>/figures.tsx`, built from the cast; an interactive figure gets its own `<name>-lab.tsx` client component.
+- Tech diagrams: plain boxes and arrows per the Sizes table, with no metaphor, since the tech view skips analogies (VOICE.md). Draw one in `tech.tsx` beside the section that uses it, or in `figures.tsx` when it reuses the cast's shapes.
+- Promote a shape to `src/components/wiki/` once a second entry wants it.

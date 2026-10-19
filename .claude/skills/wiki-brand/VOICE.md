@@ -28,7 +28,7 @@ Section order (rename headings to fit the entry, keep the order):
 The reader is an engineer deciding whether to use, extend or copy this. Be exact and dense; skip the analogies.
 
 - Real names: endpoints, models, packages, env var names (never values), file paths in the source repo.
-- Show shapes: request and response examples in `CodeBlock`, data flow as a diagram.
+- Show shapes: data flow as a diagram, fields and request/response parts as a `DataTable`, names inline as `Code`. The page has **one** `CodeBlock` at most, the snippet that captures the core idea.
 - Every claim about quality cites a measured number and how it was measured.
 - Decisions get their reason and the alternative that was rejected.
 
@@ -37,7 +37,7 @@ Section order:
 0. **On this page**: a `PageIndex` at the very top of the view, before any section. It lists every section in page order, starting with At a glance, each linking to that section's anchor on the same page (`#<section id>`; At a glance is `#glance`). Titles match the section headings word for word. A long section with `SubHeading`s lists them as `children`. It is a navigation block, not a `Section`, so it carries no number of its own and no heading beyond "On this page".
 1. **At a glance**: a `DataTable` of stack, models, cost, status, owner, source repo.
 2. **Architecture**: diagram + walkthrough of the data flow.
-3. **Core mechanism**: the API or algorithm in detail, with request/response.
+3. **Core mechanism**: the API or algorithm in detail, with its request/response shape (usually where the one `CodeBlock` goes).
 4. **Key decisions and trade-offs**: decision, reason, rejected alternative.
 5. **Evaluation**: what was measured, results table, known failure modes.
 6. **Limits and risks**: technical, cost, safety, policy.

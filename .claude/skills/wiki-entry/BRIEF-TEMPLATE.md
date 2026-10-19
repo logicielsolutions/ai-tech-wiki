@@ -39,15 +39,15 @@ Copy into `src/content/<slug>/brief.md`. Each field holds a fact plus where it c
 - Limits and risks:
 - How to run it:
 - Open questions / next steps:
-- Sources and links:
+- Sources and links (for the brief only; the pages carry no Sources section):
 
 ## Off the page
 - Anything to leave out (names, clients, internal numbers):
 
 ## Outline
-### Explainer
+### Explainer (VOICE.md order, each section with its figure idea)
 1. ...
-### Tech
+### Tech (VOICE.md order)
 0. On this page (index at the top: At a glance, then every section)
 1. At a glance
 2. ...
