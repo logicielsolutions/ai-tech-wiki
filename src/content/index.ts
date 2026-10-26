@@ -27,6 +27,10 @@ import { meta as motionMeta } from "./motion-with-claude-code/meta";
 import MotionArt from "./motion-with-claude-code/art";
 import MotionExplainer from "./motion-with-claude-code/explainer";
 import MotionTech from "./motion-with-claude-code/tech";
+import { meta as selfImprovingAgentMeta } from "./self-improving-agent/meta";
+import SelfImprovingAgentArt from "./self-improving-agent/art";
+import SelfImprovingAgentExplainer from "./self-improving-agent/explainer";
+import SelfImprovingAgentTech from "./self-improving-agent/tech";
 
 /** The shared tag set. Add a tag only when none of these fit. */
 export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning", "governance", "video"] as const;
@@ -39,6 +43,7 @@ export const entries: Entry[] = [
   { meta: paperclipFactoryMeta, Art: PaperclipFactoryArt, Explainer: PaperclipFactoryExplainer, Tech: PaperclipFactoryTech },
   { meta: aiVideoMeta, Art: AiVideoArt, Explainer: AiVideoExplainer, Tech: AiVideoTech },
   { meta: motionMeta, Art: MotionArt, Explainer: MotionExplainer, Tech: MotionTech },
+  { meta: selfImprovingAgentMeta, Art: SelfImprovingAgentArt, Explainer: SelfImprovingAgentExplainer, Tech: SelfImprovingAgentTech },
 ];
 
 export function getEntry(slug: string): Entry | undefined {
