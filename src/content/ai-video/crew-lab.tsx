@@ -88,7 +88,7 @@ const JOBS: Job[] = [
   },
 ];
 
-export function CrewPicker() {
+export function CrewLab() {
   const [jobId, setJobId] = useState(JOBS[0].id);
   const job = JOBS.find((j) => j.id === jobId) ?? JOBS[0];
 

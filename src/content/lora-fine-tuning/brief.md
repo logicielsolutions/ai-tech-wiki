@@ -15,7 +15,7 @@ Brief for the LoRA fine-tuning entry (14 Oct 2026). Every fact cites a source fi
 
 ## Readers
 - Non-tech reader: leadership and managers at Logiciel (asked: 14 Oct 2026)
-- What they should be able to say after the explainer: (1) you can teach an existing AI one narrow job without rebuilding it, by training a small add-on (LoRA); (2) the compressed version (QLoRA) did the same job just as well with less than half the memory, on a free cloud graphics card; (3) small models can simply be retrained whole (full fine-tuning), and for one narrow job a small, fully trained model beat a bigger one with an add-on; (4) a trained specialist gets worse outside its job, and a big hosted model can beat it there, so fine-tune for narrow, repeated jobs and test it on unfamiliar cases first
+- What they should be able to say after the explainer: (1) you can teach an existing AI one narrow job without rebuilding it, by training a small add-on (LoRA); (2) the compressed version (QLoRA) did the same job with no measurable difference in score and about 40–60% less memory in use (table A: 58% less on database questions, 42% on character voice; the card still reserves more), on a free cloud graphics card; (3) small models can simply be retrained whole (full fine-tuning), and for one narrow job a small, fully trained model beat a bigger one with an add-on; (4) a trained specialist gets worse outside its job, and a big hosted model can beat it there, so fine-tune for narrow, repeated jobs and test it on unfamiliar cases first
 - Engineer: a Logiciel AI engineer deciding whether and how to fine-tune for a client task
 - What they should be able to decide: prompt a big hosted model vs fine-tune; full vs LoRA vs QLoRA by model size, memory and quality; a starting config; how to build an evaluation they can trust
 
@@ -42,7 +42,7 @@ Brief for the LoRA fine-tuning entry (14 Oct 2026). Every fact cites a source fi
   |---|---|---|---|---|---|---|
   | Database questions, familiar (n=1000) | Llama-3.2-3B | exec accuracy | 51.6% | 77.2% | 77.8% | `FT/results/{base,lora,qlora}.json` |
   | Database questions, harder (n=200) | same | exec accuracy | 24.5% | 50.0% | 48.0% | `FT/results/hard_*.json` |
-  | Unfamiliar real databases, BIRD Mini-Dev (n=500) | same | exec accuracy | 23.8% | 17.0% | 16.0% | `FT/results/bird_*.json`; large hosted model 3-shot 41.6% (`bird_frontier.json`) |
+  | Unfamiliar real databases, BIRD Mini-Dev (n=500) | same | exec accuracy | 23.8% | 17.0% | 16.0% | `FT/results/bird_*.json`; hosted commercial model (gpt-4o-mini) 3-shot 41.6% (`bird_frontier.json`) |
   | General knowledge, MMLU (n=500) | same | accuracy | 57.8% | 57.8% | 56.4% | `FT/results/mmlu.json` |
   | Training cost (T4) | same | peak VRAM alloc / reserved; time | — | 8.48 / 13.38 GB; 6,919.5 s | 3.56 / 8.37 GB; 6,954.0 s | `FT/results/comparison.csv` |
   | Character voice (12 probes ×2) | Llama-3.2-1B | blind pairwise judge wins | — | 13 of 24 | 11 of 24 | `DL/persona_sprint_results/eval_results/judge_pairwise_qlora_vs_lora.json` |
@@ -79,11 +79,11 @@ Brief for the LoRA fine-tuning entry (14 Oct 2026). Every fact cites a source fi
 ## Off the page (asked: 14 Oct 2026)
 - Internal ₹/$ costs and cost plans: say only "a free cloud graphics card, about 2 hours"
 - Review/audit details: say only "three review rounds"
-- The hosted model's name: say "a large hosted model"
+- The hosted model's name: say "a hosted commercial model (gpt-4o-mini)"
 - By rule: AWS account ID, role ARN, bucket and IAM names; `key.txt`, `.env`; the Confidential Cycle 5 briefing; spam client context, volumes and pricing; personal mailbox data; teammate names in the Mac commands golden set; private dataset names; the judge model's name; the TV character's name (say "a TV character's voice"); Drive paths
 
 ## Outline
-Cast for every figure: the **camera** (the frozen base model, `fill`), the **clip-on lens** (LoRA, the one accent object), the **compact camera** (QLoRA, a smaller camera body with the same lens), the **open camera** (full fine-tuning, the body with its panel off and parts highlighted), the **studio camera** (the large hosted model, outlined only), **photos** (answers; good = `good` tick), and a **scene** (familiar vs unfamiliar).
+Cast for every figure: the **camera** (the frozen base model, `fill`), the **clip-on lens** (LoRA, the one accent object), the **compact camera** (QLoRA, a smaller camera body with the same lens), the **open camera** (full fine-tuning, the body with its panel off and parts highlighted), the **studio camera** (the hosted commercial model (gpt-4o-mini), outlined only), **photos** (answers; good = `good` tick), and a **scene** (familiar vs unfamiliar).
 
 ### Explainer (reader: leadership and managers)
 1. **A lens, not a new camera**: hero: a camera with the accent lens clipped on, photos coming out sharp; the compact camera with the same lens beside it; pitch underneath. Prose: what fine-tuning means in one paragraph, and the three ways we tried it
@@ -91,10 +91,10 @@ Cast for every figure: the **camera** (the frozen base model, `fill`), the **cli
 3. **How it works** (Steps, each with a figure):
    1. Keep the camera: the model stays frozen
    2. Clip on a lens: only the small add-on learns (LoRA)
-   3. Same lens, compact camera: compressed model, same add-on, less than half the memory (QLoRA)
+   3. Same lens, compact camera: compressed model, same add-on, about 40–60% less memory in use (QLoRA)
    4. Or rebuild a small camera: every part learns (full fine-tuning), affordable for small models
    5. Test on new and unfamiliar shots: familiar, harder, unfamiliar, general knowledge
-4. **What we measured** (interactive picker): jobs × methods, bars, memory and time; key numbers above it: "about half → about 8 in 10", "less than half the memory", "2 hours on a free cloud graphics card", "worse on unfamiliar databases"
+4. **What we measured** (interactive picker): jobs × methods, bars, memory and time; key numbers above it: "about half → about 8 in 10", "58% less memory in use on the database job, no measurable score difference", "2 hours on a free cloud graphics card", "worse on unfamiliar databases"
 5. **Which one to pick**: a Compare of three tiles (rebuild / lens / compact + lens) with when each won, from our runs
 6. **What it can't do**: off-subject shots get worse (BIRD; the rented studio camera wins there), it teaches style and format, not facts, small tests and one try each, a person checks before any client use
 7. **In one breath**

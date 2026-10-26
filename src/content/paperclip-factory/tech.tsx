@@ -126,13 +126,13 @@ export default function Tech() {
             ["What", "A governed software factory on Paperclip, shipped as a template: one human sign-off of a versioned execution contract, then BA → PM → developers → QA → pull request, deny-only outside the contract"],
             ["Platform", <span key="p">Paperclip <Code>2026.916.1</Code>, self-hosted, pinned (the bootstrap refuses any other version)</span>],
             ["Agents", <span key="a">Chief of staff, Business Analyst, Project Manager, Senior and Junior Developer, QA, plus the built-in Summarizer and Reflection Coach; Claude Code via <Code>claude_local</Code> on the ACP engine</span>],
-            ["Model", "Claude Opus 5, thinking effort medium"],
+            ["Model", "Claude Opus 5 (thinking effort medium) for the five main agents; the junior developer and the two built-ins run smaller models"],
             ["Claude access", <span key="c">The company Claude Code subscription on the live instance; each developer&apos;s own subscription through a 1-year <Code>claude setup-token</Code> token</span>],
             ["Isolation", <span key="i"><Code>srt</Code> (Anthropic sandbox-runtime) 0.0.77, pinned, beta; Seatbelt on macOS, Bubblewrap on Linux; no Docker</span>],
             ["Governance", "38 Claude deny rules, gov-shim (Rust, Cedar) in deny-only mode, Tool Gateway policies from the contract, the factory-guard plugin, GitHub rulesets"],
-            ["Template", <span key="t">Zero-dependency Node 24.11+ scripts, a company package, three plugins (<Code>factory-guard</Code>, <Code>buzz-notifier</Code>, <Code>buzz-bridge</Code>), a Slack manifest; 366 tests</span>],
+            ["Template", <span key="t">Zero-dependency Node 24.11+ scripts, a company package, three plugins (<Code>factory-guard</Code>, <Code>buzz-notifier</Code>, <Code>buzz-bridge</Code>), a Slack manifest; 343 tests in a clean clone of the bundle</span>],
             ["Cost", "Claude subscription: Paperclip records runs as $0, so budgets can't stop them; capped instead at 3600 s per run and 50 runs a day per agent. No per-project cost measured yet"],
-            ["Status", "Experiment. Testing phase on one machine; enforcement off on the live instance; rollout paused since 14 Oct 2026 until the exported template is tested"],
+            ["Status", "Experiment. Testing phase on one machine; enforcement off on the live instance"],
             ["Owner", "Gurjeet Singh Saini, operator"],
             ["Source", <span key="s">The <Code>paperclip</Code> operations repo (local only) and its <Code>factory-template/</Code> folder</span>],
           ]}
@@ -168,7 +168,7 @@ export default function Tech() {
             ["Tool Gateway policies", "MCP and app tools outside the contract, including tools a connection gains later; rate limits", "Paperclip server", "Off"],
             ["factory-guard", "Exceptions, hold, pause, cancel, one alert, revalidate, resume; GitHub broker; stops agent-made config changes", "Paperclip plugin", "Off"],
             ["GitHub rulesets", "Pushes to main, merges by the agents' App, checks satisfied by anything but GitHub Actions", "GitHub", "Mock only"],
-            ["Paperclip built-ins", "Hire approval, run limits, isolated worktrees, review stage, audited skills", "Paperclip", "On"],
+            ["Paperclip built-ins", "Hire approval, run limits, isolated worktrees, review stage, audited skills", "Paperclip", "Used where the rollout plan calls for them"],
           ]}
         />
       </Section>
@@ -242,7 +242,7 @@ export default function Tech() {
             ["One human gate (planning), deny-only, never ask", "Full automation after sign-off; ACP auto-approves prompts", "A 10-layer design built on human approvals and ask-first"],
             ["Sign-off is a versioned execution contract", "An adversarial review by another model, verified claim by claim, showed a plain card wasn't tied to what agents may do", "A company-wide allow-all tool profile"],
             ["srt around every agent process, no Docker", "No extra layer; same tool on macOS and Linux; a wrapper plus a policy file", "One or two Docker containers, Docker Sandboxes, E2B Runtime (needs Linux with KVM), E2B cloud (client code leaves the machine). Fallback: a dedicated OS user"],
-            ["Keep the in-house gov-shim as the deny layer", "Parses shell properly; Cedar policies; 103 policy fixtures", "Microsoft's Agent Governance Toolkit plugin (missed rm -fr variants, never scans tool output, its review defaults stall headless agents); hookify (regex only)"],
+            ["Keep the in-house gov-shim as the deny layer", "Parses shell properly; Cedar policies; 117 policy fixtures", "Microsoft's Agent Governance Toolkit plugin (missed rm -fr variants, never scans tool output, its review defaults stall headless agents); hookify (regex only)"],
             ["Paperclip's own Tool Gateway for MCP", "Already does per-agent entitlements, argument-level blocks, rate limits and audit", "External gateways (agentgateway, ToolHive, Docker MCP Gateway, IBM ContextForge, Obot); ToolHive kept for MCP outside Paperclip"],
             ["Own notify-only guard plugin and one Slack webhook", "Nothing in Slack can act on the factory", "The community Slack plugin (approve, override and command features); Paperclip's Slack connector (an agent tool that needs HTTPS)"],
             ["Template-first", "Every change re-runnable on a fresh Paperclip", "Hand configuration on one machine"],
@@ -269,18 +269,18 @@ export default function Tech() {
           <KeyNumber value="98/98" label="Sandbox probes refused" />
           <KeyNumber value="27/27" label="Delivery probes refused" />
           <KeyNumber value="100/100" label="Policy decisions match the contract" />
-          <KeyNumber value="366" label="Template tests passing" />
+          <KeyNumber value="343" label="Template tests passing in a clean bundle clone" />
         </KeyNumbers>
         <DataTable
           columns={["Test", "What was tried", "Result"]}
           rows={[
-            ["Trust boundary", "Read host secrets and Paperclip data; reach other local ports; egress to hosts off the allowlist; tamper with gov-shim or the settings; escapes; an unmanaged .mcp.json", "98 of 98 refused at the srt layer; real agent runs refused by deny rules and gov-shim; commit, npm and temp files still work"],
+            ["Trust boundary", "Read host secrets and Paperclip data; reach other local ports; egress to hosts off the allowlist; tamper with gov-shim or the settings; escapes; an unmanaged .mcp.json", "98 of 98 refused at the srt layer in a disposable lab (10 more items informational, not scored); real agent runs refused by deny rules and gov-shim; commit, npm and temp files still work"],
             ["Lifecycle", "A forbidden force push; retries through 20 Bash forms, gh, the direct API, an unmanaged MCP server; resume; Slack", "Stopped 13 s after the wake with exactly one alert; 9 of 10 direct-API retries refused, the 10th (self-config) fixed and re-tested; resume woke once and repeated nothing; nothing from Slack reached Paperclip"],
             ["Delivery (mock GitHub)", "Push to main in many forms, merge, self-approve, change rulesets, satisfy a check, rewrite CI, reach another repo", "27 of 27 refused at the srt layer; 7 of 8 at the Claude layer, the 8th a mock bug fixed with a regression test; main never moved"],
             ["Contract permissions", "Paperclip's policy dry run, every agent × tool", "100 of 100 decisions matched the contract"],
             ["Fresh install", "A new Paperclip, company import, bootstrap; later bin/setup", "0 planned changes after four runs; bin/setup reached a plan of 0 in 167 s with a fake Claude token"],
             ["Buzz bridge", "Unknown key, forged signature, look-alike request, stale revision, replay, edited request, control verbs, injected text", "All refused live"],
-            ["Template tests", "npm test", "366 pass in the ops repo; 343 pass inside a clean clone of the developer bundle"],
+            ["Template tests", "npm test", "343 pass inside a clean clone of the developer bundle"],
             ["Routine loop (demo)", "Developer → QA fails → fix → QA passes", "3 min 26 s, 4 runs, no alert"],
           ]}
         />
@@ -384,8 +384,8 @@ export default function Tech() {
 
       <Section id="next" title="Open questions and next steps">
         <Prose>
+          <p>In this order:</p>
           <ul className="flex list-disc flex-col gap-2 pl-5">
-            <li>The rollout is paused since 14 Oct 2026 until the exported template is tested.</li>
             <li>Hand-over: a shared team Buzz relay, then a pilot with one developer on macOS and one on Linux, then gov-shim shipped pre-built so nobody needs Rust.</li>
             <li>GitHub delivery: the operator&apos;s App setup, then one real run.</li>
             <li>A real client channel and a pilot from conversation to pull request, with one staged rule break.</li>

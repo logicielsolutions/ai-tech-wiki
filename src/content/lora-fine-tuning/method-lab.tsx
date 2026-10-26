@@ -83,7 +83,7 @@ const JOBS: Job[] = [
         label: "12,284 tweets",
         metric: "Score from 0 to 100, balanced across the three moods",
         rows: [
-          { method: "Untrained", detail: "BERT, asked without training", value: 16.7 },
+          { method: "Untrained", detail: "BERT, asked without training (it labelled nearly everything positive, worse than guessing)", value: 16.7 },
           { method: "Full fine-tuning", detail: "BERT", value: 69.17 },
           { method: "Full fine-tuning", detail: "RoBERTa", value: 71.23 },
           { method: "Full fine-tuning", detail: "RoBERTa trained on tweets", value: 71.89 },
@@ -143,7 +143,7 @@ const JOBS: Job[] = [
           { method: "LoRA", value: null },
           { method: "QLoRA", value: null },
         ],
-        note: "The same pattern as the database job: less sure-footed on unfamiliar data.",
+        note: "The same pattern as the database job: less sure-footed on unfamiliar data. On a real mailbox it was weaker still: it caught only about 27% of spam (9 of 33 emails).",
       },
     ],
     costs: [],

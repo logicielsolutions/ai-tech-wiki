@@ -16,7 +16,7 @@ The explainer links down to the tech page; the tech page links back up. A reader
 
 ## Where things live
 
-- `src/content/<slug>/`: one folder per entry: `brief.md` (the interview-backed facts, source of truth for the entry), `meta.ts`, `art.tsx`, `explainer.tsx`, `tech.tsx`.
+- `src/content/<slug>/`: one folder per entry: `brief.md` (the interview-backed facts, source of truth for the entry), `meta.ts`, `cast.tsx` (the metaphor's objects, drawn once), `art.tsx`, `figures.tsx`, a `<name>-lab.tsx` per interactive figure, `explainer.tsx`, `tech.tsx`. The wiki-entry skill's file table says what each holds.
 - `src/content/index.ts`: the registry the list page and routes read from.
 - `src/components/wiki/`: shared building blocks for entries. An entry composes these; a new pattern becomes a shared component here, never one-off styling inside an entry.
 
