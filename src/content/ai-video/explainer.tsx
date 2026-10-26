@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Analogy, Callout, Compare, Figure, Prose, Section, Step, Steps, Term } from "@/components/wiki";
-import { CrewPicker } from "./crew-picker";
+import { CrewLab } from "./crew-lab";
 import { DenoiseLab } from "./denoise-lab";
 import {
   ClearingFigure,
@@ -136,7 +136,7 @@ export default function Explainer() {
             months, so the engineering page keeps the full rankings and prices.
           </p>
         </Prose>
-        <CrewPicker />
+        <CrewLab />
         <Callout kind="note" title="Start from a picture, not just words">
           <p>
             Professionals rarely type a description and hope. They make a still image first (cheap and quick to change),

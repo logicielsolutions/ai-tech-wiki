@@ -105,14 +105,14 @@ export default function Tech() {
           stack
           columns={["Item", "Detail"]}
           rows={[
-            ["What", "Full fine-tuning vs LoRA vs QLoRA, measured on five jobs, 20 Jul – 21 Aug 2026. Scope: how much of the model trains, not the objective (no DPO/GRPO here)"],
+            ["What", "Full fine-tuning vs LoRA vs QLoRA, measured on five jobs plus a merging study, 20 Jul – 21 Aug 2026. Scope: how much of the model trains, not the objective (no DPO/GRPO here)"],
             ["Core study", <span key="c">Text-to-SQL, <Code>unsloth/Llama-3.2-3B-Instruct</Code> (revision pinned), LoRA vs QLoRA as a one-flag A/B</span>],
             ["Other studies", "Llama-3.2-1B character voice (LoRA vs QLoRA); BERT / RoBERTa / Twitter-RoBERTa on TweetEval (full); FunctionGemma-270M full vs Gemma-3-1B LoRA (Mac actions); ModernBERT-base (full, spam); roberta-base ×7 (full, GLUE merging)"],
             ["Stack", <span key="s">Unsloth, TRL <Code>SFTTrainer</Code>, PEFT 0.19.1, bitsandbytes 0.49.2, transformers 5.5.0, torch 2.11.0+cu128; Hugging Face <Code>Trainer</Code> for the encoders</span>],
             ["Hardware", "Free-tier Colab Tesla T4 (fp16, no bf16) for SQL, character voice and sentiment; BIRD scored on a laptop CPU"],
             ["Status", "Experiment. Nothing from these runs is deployed"],
             ["Owner", "Gurjeet Singh Saini, AI Practice"],
-            ["Source", <span key="src"><Code>~/Documents/Logiciel-Projects/fine-tuning</Code> and <Code>finetuning-sprint</Code> (local only, no remotes)</span>],
+            ["Source", <span key="src">the <Code>fine-tuning</Code> and <Code>finetuning-sprint</Code> repos (internal, local only, no remotes; ask the AI Practice for access)</span>],
           ]}
         />
       </Section>
@@ -126,8 +126,8 @@ export default function Tech() {
             Data: about 20k blended training rows. Easy: <Code>b-mc2/sql-create-context</Code> → 10k train / 500 val / 1k test,
             the test set stratified 200 per bucket (simple, aggregate, group_by, join, nested). Hard:{" "}
             <Code>gretelai/synthetic_text_to_sql</Code> → 10k train / 500 val / 200 test (window functions, joins, subqueries,
-            set operations), kept only where the gold query executes. External: BIRD Mini-Dev, 500 questions over 11 real
-            SQLite databases. Forgetting: 500 MMLU questions. Dataset revisions are pinned.
+            set operations), kept only where the gold query executes (all but one of the 200 hard questions). External: BIRD Mini-Dev, 500 questions over 11 real
+            SQLite databases. Forgetting: 500 MMLU questions. The SQL dataset revisions are pinned; the MMLU slice is not.
           </p>
           <p>
             Training ran in Colab from a bundled copy of the repo (<Code>bundle_for_colab.sh</Code> →{" "}
@@ -177,12 +177,12 @@ export default function Tech() {
           columns={["Decision", "Reason", "Rejected"]}
           rows={[
             ["One-flag A/B: arms differ only in load_in_4bit, both from byte-identical fp16 weights", "Any other difference would confound the LoRA vs QLoRA comparison", "A separate pre-quantised 4-bit repo; a different base model per arm (e.g. Qwen2.5-Coder, which also had licence concerns)"],
-            ["Llama-3.2-3B as the base", "Its weak SQL baseline gives a clear before/after", "Phi-3.5-mini-instruct (stronger start, smaller gain)"],
+            ["Llama-3.2-3B as the base", "Its weak SQL baseline was chosen on purpose to give a clear before/after, so part of the gain is a baseline effect", "Phi-3.5-mini-instruct (stronger start, smaller gain; expected from the literature, not run)"],
             ["Text-to-SQL as the task", "Canonical Unsloth example, the base model fails visibly, scoring is deterministic", "Function calling, SQuAD2 abstention, PII redaction, Hindi intent, Hinglish TOP, DialogSum, En→Hi translation"],
             ["Execution match as the headline metric", "String match hides correct queries: base 26.5% exact vs 51.6% exec", "Exact match only"],
             ["All 7 linear projections, α = 2r, r = 16", "Attention-only leaves the MLP frozen; r = 16 was enough here", "Attention-only targets; a rank or epoch sweep (kept simple)"],
             ["Completion-only loss", "Gradient only on the SQL, not on the schema and question", "Loss on the whole prompt"],
-            ["BIRD as an external test, plus a 3-shot large hosted model as a floor", "Held-out is not out-of-distribution; only unseen databases test generalisation", "Reporting the in-distribution sets alone"],
+            ["BIRD as an external test, plus a 3-shot hosted commercial model (gpt-4o-mini, a deliberately weak floor, not a frontier model)", "Held-out is not out-of-distribution; only unseen databases test generalisation", "Reporting the in-distribution sets alone"],
             ["Full fine-tuning for the small encoders (BERT, RoBERTa, ModernBERT)", "110–150M parameters train whole on one GPU, so LoRA's memory saving isn't needed", "LoRA on the encoders"],
             ["Full fine-tunes for the merging study", "Low-rank updates would confound what merging loses (model-merging PLAN.md)", "LoRA fine-tunes"],
             ["Three review rounds of the harness before trusting any number", "Bad gold and harness bugs cap or inflate scores", "Trusting the first run"],
@@ -280,13 +280,13 @@ export default function Tech() {
           stack
           columns={["Job", "Model", "Method", "Result", "Training"]}
           rows={[
-            ["Tweet sentiment, TweetEval 3-class, test n = 12,284", "bert-base-uncased (109M)", "Full, 3 epochs, LR 2e-5, batch 32, len 128", "Macro-F1 69.17 (acc 69.31); prompted via the MLM head with no training: 16.7", "T4, 1,648.9 s, 3.85 GB"],
+            ["Tweet sentiment, TweetEval 3-class, test n = 12,284", "bert-base-uncased (109M)", "Full, 3 epochs, LR 2e-5, batch 32, len 128", "Macro-F1 69.17 (acc 69.31); prompted via the MLM head with no training: 16.7 (below chance: it labels almost everything positive)", "T4, 1,648.9 s, 3.85 GB"],
             ["Same", "roberta-base (125M)", "Full, same recipe", "Macro-F1 71.23", "T4, 1,545.9 s, 3.49 GB"],
             ["Same", "twitter-roberta-base (125M)", "Full, same recipe", "Macro-F1 71.89; vs roberta-base McNemar p = 0.096 (not significant)", "T4, 1,551.2 s, 3.49 GB"],
             ["Mac actions, 106 hand-written golden commands, 56 tools", "FunctionGemma-270M", "Full, 2 epochs, LR 5e-5", "Tool name 91.5%, exact call 82.1%; 2,026 ms/command (laptop, MPS)", "Not recorded"],
             ["Same", "Gemma-3-1B-it", "LoRA r = 16, α = 32, merged, 1 epoch, LR 1e-4", "Tool name 79.2%, exact call 67.9%; 6,779 ms/command", "Not recorded"],
-            ["Spam vs ham, public corpora", "ModernBERT-base (149M), v5", "Full, two-stage, 2 epochs", "In-set test F1 0.991; held-out corpus: 79.5% caught at 0.19% false positives (threshold 0.5)", "Not recorded"],
-            ["7 GLUE tasks", "roberta-base ×7", "Full, LR 2e-5", "Mean acc 0.871; one TIES-merged model 0.682 (78.2% retained), 0.812 after retraining the heads (93.2%)", "T4"],
+            ["Spam vs ham, public corpora", "ModernBERT-base (149M), v5", "Full, two-stage, 2 epochs", "In-set test F1 0.991; held-out corpus: 79.5% caught at 0.19% false positives (threshold 0.5); real mailbox: 27% caught (9 of 33 spam), AUC 0.77", "Not recorded"],
+            ["7 GLUE tasks", "roberta-base ×7", "Full, LR 2e-5", "Mean acc 0.871; one TIES-merged model 0.682 (78.2% retained), 0.812 after retraining the heads (93.2%)", "Not recorded"],
           ]}
         />
 
@@ -296,8 +296,8 @@ export default function Tech() {
             <li>
               <strong>BIRD regression.</strong> Both tuned arms fall below base on the simple and moderate bands. The later
               evaluation report breaks the base → QLoRA failures down as logic or wrong rows 205 → 239, schema errors 139 → 115,
-              invalid output 16 → 31, and dialect only 10 → 6. Overfitting to the training distribution explains it better than
-              SQL dialect.
+              invalid output 16 → 31, and dialect only 10 → 6. Dialect is a small share of failures; the cause of the drop was not
+              tested, and overfitting to the training distribution is the likely explanation.
             </li>
             <li>
               <strong>Window functions.</strong> The one bucket with a large LoRA/QLoRA gap: 36.6% vs 26.8% (n = 41, single
@@ -317,10 +317,10 @@ export default function Tech() {
         </Prose>
         <Callout kind="limit" title="How far to trust these numbers">
           <p>
-            Every run is a single seed. The character-voice judge saw 24 pairs; the spam real-mailbox check had 33 spam emails.
+            Every run is a single seed. The character-voice judge (one AI model) scored 12 prompts, each asked two ways; the spam real-mailbox check had 33 spam emails.
             Full fine-tuning, LoRA and QLoRA have never been run on the same model (the structured-extraction notebooks for
             Gemma-3-270M are built but not run). The sentiment and character-voice results exist only as Colab exports, not yet
-            in a repo.
+            in a repo (copies sit on the author&apos;s machine). The QLoRA-vs-LoRA score differences on the smaller tests were not separable from noise, so read them as &ldquo;no measurable difference&rdquo;, not &ldquo;identical&rdquo;.
           </p>
         </Callout>
       </Section>
@@ -328,7 +328,7 @@ export default function Tech() {
       <Section id="limits" title="Limits and risks">
         <Prose>
           <BulletList>
-            <li><strong>Off-distribution.</strong> A fine-tune is a specialist; test on unseen data before trusting it, and compare against prompting a large hosted model.</li>
+            <li><strong>Off-distribution.</strong> A fine-tune is a specialist; test on unseen data before trusting it, and compare against prompting a hosted commercial model.</li>
             <li><strong>Knowledge.</strong> Fine-tuning teaches format, style and task patterns, not facts. Use retrieval for facts.</li>
             <li><strong>Adapter coupling.</strong> An adapter works only with its exact base revision; pin it (the SQL study pins the repo revision).</li>
             <li><strong>T4 limits.</strong> No bf16, so fp16 training. LoRA on the 3B model reserved 13.4 of the T4&apos;s 14.6 GB; QLoRA reserved 8.4 GB, leaving room for longer sequences or a bigger model.</li>

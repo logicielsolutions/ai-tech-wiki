@@ -28,7 +28,7 @@ export default function Explainer() {
             <Term def="Giving an existing model extra practice on worked examples of one job, so it gets better at that job.">fine-tuning</Term>.
           </p>
           <p>
-            Between July and August 2026 our AI Practice tried three ways of doing it, on five different jobs, and measured
+            Between July and August 2026 our AI Practice tried three ways of doing it, on five different jobs (plus a model-merging study), and measured
             every result. This page explains the three ways and what we found.
           </p>
         </Prose>
@@ -89,8 +89,9 @@ export default function Explainer() {
               does the same thing on a compressed copy of the model. Same add-on, much smaller camera body.
             </p>
             <p>
-              <strong>It needed less than half the memory and scored the same.</strong> On the database job: 3.6 GB instead of
-              8.5 GB, and about 78% right either way.
+              <strong>It needed less memory and showed no measurable difference in score.</strong> On the database job: 3.6 GB
+              instead of 8.5 GB, and about 78% right either way. On the character-voice job the saving was smaller (about
+              40%) and it trained about 15% slower.
             </p>
           </Step>
           <Step n={4} title="Or open the camera up and rebuild it" figure={<RebuildFigure />}>
@@ -115,7 +116,7 @@ export default function Explainer() {
       <Section id="measured" title="What we measured">
         <KeyNumbers>
           <KeyNumber value="78%" label="Database questions right, up from 52%" />
-          <KeyNumber value="58%" label="Less memory with the compact camera, same score" />
+          <KeyNumber value="58%" label="Less memory in use on the database job, no measurable score difference" />
           <KeyNumber value="~2 hours" label="Training on one free cloud graphics card" />
           <KeyNumber value="16%" label="Unfamiliar databases: down from 24%" />
         </KeyNumbers>
@@ -141,7 +142,8 @@ export default function Explainer() {
                 <p>
                   When a small model can do the job, train all of it. For Mac commands, a small model built for actions and
                   fully trained got 92% right, against 79% for a model nearly four times bigger with a lens, and answered
-                  three times faster.
+                  three times faster. This is not a clean method comparison: the two started from different models and recipes,
+                  and the test commands also guided how the training data was revised.
                 </p>
               ),
             },
@@ -160,8 +162,9 @@ export default function Explainer() {
               title: "Same lens, compact camera",
               children: (
                 <p>
-                  Our default for bigger models. In both of our side-by-side tests it matched the full-size version while
-                  using roughly half the memory or less, so bigger models fit on cheaper hardware.
+                  Our default for bigger models. In both of our side-by-side tests it scored about the same as the full-size
+                  version while using roughly 40 to 60% less memory in use, so bigger models fit on cheaper hardware. The card
+                  still has to reserve more than that, and it was not faster.
                 </p>
               ),
             },
@@ -170,7 +173,7 @@ export default function Explainer() {
       </Section>
 
       <Section id="limits" title="What it can't do">
-        <Figure caption="On real databases it had never seen, the trained model did worse than the untrained one, and a large hosted model with no training at all did best.">
+        <Figure caption="On real databases it had never seen, the trained model did worse than the untrained one, and a hosted commercial model with no training at all did best.">
           <UnfamiliarFigure />
         </Figure>
         <Compare
@@ -200,7 +203,7 @@ export default function Explainer() {
             children: (
               <p>
                 Every result here comes from a single training run, and some tests are small: the character-voice comparison
-                used 24 pairs. Differences of a few points can be luck.
+                used 12 prompts, each asked two ways, scored by one AI judge. Differences of a few points can be luck.
               </p>
             ),
           }}
@@ -216,7 +219,7 @@ export default function Explainer() {
         />
         <Callout kind="warning" title="Try the big model first">
           <p>
-            Before training anything, ask a large hosted model to do the job with a few examples. Train only when you need the
+            Before training anything, ask a hosted commercial model to do the job with a few examples. Train only when you need the
             same style every time or a lower cost per answer, and test it on unfamiliar cases before anyone relies on it.
           </p>
         </Callout>
@@ -226,9 +229,9 @@ export default function Explainer() {
         <Prose>
           <p className="text-[1.25rem] leading-snug tracking-[-0.01em]">
             You don&apos;t have to rebuild an AI model to make it good at one job. A small add-on, trained on a free graphics
-            card in about two hours, took ours from about half right to about 8 in 10, and the compressed version did the same
-            in less than half the memory. Small models can simply be retrained whole. Either way you get a specialist that is
-            worse off its subject, so test it there first.
+            card in about two hours, took ours from about half right to about 8 in 10, and the compressed version used less
+            memory with no measurable difference in score. Small models can simply be retrained whole. Either way you get a
+            specialist that is worse off its subject, so test it there first.
           </p>
         </Prose>
       </Section>

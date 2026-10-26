@@ -88,9 +88,9 @@ export default function Explainer() {
             tool called Paperclip, which organizes them like a small company.
           </p>
           <p>
-            We built a way to run that team safely for client work. A person agrees what to build and signs it once. After
-            that the agents work on their own, but only inside what was signed. Anything else is refused, and a rule break
-            stops the work and calls a person.
+            We built and tested a way to run that team inside strict limits. It is still in testing and has not been used for
+            client work. A person agrees what to build and signs it once. After that the agents work on their own, but only
+            inside what was signed. Anything else is refused, and a rule break stops the work and calls a person.
           </p>
         </Prose>
       </Section>
@@ -147,7 +147,7 @@ export default function Explainer() {
           </Step>
           <Step n={3} title="Each agent works inside a fence" figure={<FenceFigure />}>
             <p>
-              Every agent runs inside a{" "}
+              When the fence is switched on, every agent runs inside a{" "}
               <Term def="A sealed space on the computer. A program inside it can only see and change what the rules allow.">sandbox</Term>
               : it can change only its own working folder, can&apos;t see the machine&apos;s passwords, keys or the
               factory&apos;s own records, and can reach only a short list of websites.
@@ -159,7 +159,7 @@ export default function Explainer() {
               way. Nobody is asked to approve it.
             </p>
             <p>
-              <strong>A real rule break stops the work</strong> and sends one alert to a private{" "}
+              <strong>A real rule break stops the work</strong> (when the gatekeeper is on) and sends one alert to a private{" "}
               <Term def="A team chat app. Here it only receives alerts; nothing typed in it can change the factory.">Slack</Term>{" "}
               channel. A person fixes the cause inside the factory. A reply in the chat can never restart the work, and the
               refused move is not tried again.
@@ -212,8 +212,8 @@ export default function Explainer() {
           note="These are example outcomes written into this page, taken from the factory's own tests. Nothing here talks to the factory."
         />
         <KeyNumbers>
-          <KeyNumber value="98 of 98" label="Break-in attempts on the fence, all refused" />
-          <KeyNumber value="13 s" label="From a forbidden move to a full stop" />
+          <KeyNumber value="98 of 98" label="Break-in attempts on the fence in lab tests, all refused" />
+          <KeyNumber value="13 s" label="From the agent waking to a full stop" />
           <KeyNumber value="1" label="Alert per problem, never a flood" />
         </KeyNumbers>
       </Section>

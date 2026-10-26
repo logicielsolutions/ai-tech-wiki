@@ -6,6 +6,6 @@ export const meta: EntryMeta = {
   pitch: "You don't rebuild the camera. You clip on a lens for the one shot you need.",
   tags: ["fine-tuning", "llms", "evals"],
   status: "experiment",
-  updated: "14 Oct 2026",
+  updated: "19 Oct 2026",
   source: "The fine-tuning and finetuning-sprint repos (local only)",
 };
