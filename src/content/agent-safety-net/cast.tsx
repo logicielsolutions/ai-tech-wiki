@@ -9,7 +9,7 @@
 
 import { Person } from "@/components/wiki/art-kit";
 
-export { Arrow, Label, Person } from "@/components/wiki/art-kit";
+export { Arrow, Label, Mark, Person } from "@/components/wiki/art-kit";
 
 /** The trapeze: two ropes from the top and a bar. `broken` snaps the bar in the middle (a failing tool). */
 export function Trapeze({ cx, top, len = 120, w = 90, broken = false }: { cx: number; top: number; len?: number; w?: number; broken?: boolean }) {
@@ -138,20 +138,6 @@ export function Ringmaster({ cx, cy, nod = false, stop = false }: { cx: number; 
           <circle cx={cx + 50} cy={cy - 30} r={11} fill="var(--color-ink)" />
         </g>
       ) : null}
-    </g>
-  );
-}
-
-/** A small check (yes) or cross (no) badge. */
-export function Mark({ cx, cy, ok, r = 12 }: { cx: number; cy: number; ok: boolean; r?: number }) {
-  return (
-    <g>
-      <circle cx={cx} cy={cy} r={r} fill={ok ? "var(--color-good)" : "var(--color-ink)"} />
-      {ok ? (
-        <path d={`M${cx - r * 0.45} ${cy}l${r * 0.32} ${r * 0.32}l${r * 0.6} ${-r * 0.62}`} fill="none" stroke="var(--color-page)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
-      ) : (
-        <path d={`M${cx - r * 0.4} ${cy - r * 0.4}l${r * 0.8} ${r * 0.8}m0 ${-r * 0.8}l${-r * 0.8} ${r * 0.8}`} stroke="var(--color-page)" strokeWidth={2.5} strokeLinecap="round" />
-      )}
     </g>
   );
 }

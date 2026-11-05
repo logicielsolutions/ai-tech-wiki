@@ -1,5 +1,5 @@
 /**
- * Illustration primitives shared by every entry's art: a person, an arrow and a short label.
+ * Illustration primitives shared by every entry's art: a person, an arrow, a short label and a yes/no mark.
  * Token colors only, per the wiki-brand illustration rules.
  */
 
@@ -57,5 +57,19 @@ export function Label({
     <text x={x} y={y} textAnchor={anchor} fontSize={size} fontWeight={500} fill={muted ? "var(--color-muted)" : "var(--color-ink)"}>
       {children}
     </text>
+  );
+}
+
+/** A small check (yes) or cross (no) badge. */
+export function Mark({ cx, cy, ok, r = 12 }: { cx: number; cy: number; ok: boolean; r?: number }) {
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={r} fill={ok ? "var(--color-good)" : "var(--color-ink)"} />
+      {ok ? (
+        <path d={`M${cx - r * 0.45} ${cy}l${r * 0.32} ${r * 0.32}l${r * 0.6} ${-r * 0.62}`} fill="none" stroke="var(--color-page)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+      ) : (
+        <path d={`M${cx - r * 0.4} ${cy - r * 0.4}l${r * 0.8} ${r * 0.8}m0 ${-r * 0.8}l${-r * 0.8} ${r * 0.8}`} stroke="var(--color-page)" strokeWidth={2.5} strokeLinecap="round" />
+      )}
+    </g>
   );
 }
