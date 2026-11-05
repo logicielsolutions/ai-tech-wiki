@@ -79,7 +79,7 @@ Entries are composed from `src/components/wiki/`, imported from `@/components/wi
 |---|---|
 | `Section` | One section: `id` (the anchor) and `title` (the h2) |
 | `SubHeading` | An anchored h3 inside a long tech section; listed as `children` in the `PageIndex` |
-| `Prose`, `BulletList` | The 68ch reading column, and a plain list inside it |
+| `Prose`, `BulletList` | The 68ch reading column, and a plain list inside it; `ordered` numbers it when order matters (run steps) |
 | `Figure` | A visual plus its visible caption; `scroll` lets a wide diagram scroll sideways on mobile |
 | `Steps` / `Step` | The explainer's "How it works": numbered, words beside the figure from `md` |
 | `Analogy` | The everyday comparison that opens a concept ("Think of it like this") |
@@ -93,7 +93,7 @@ Entries are composed from `src/components/wiki/`, imported from `@/components/wi
 | `Code` | An inline name: API, env var, path. Breaks mid-token so it never forces horizontal scroll |
 | `DataTable` | Hairline table; `numeric` right-aligns number columns, `stack` turns wordy rows into cards below `md` |
 | `PageIndex` | The tech view's "On this page" index: a `surface` tile, numbered accent links, two columns from `md`; anchors glide into place with smooth scrolling unless reduced motion is on |
-| `Person`, `Arrow`, `Label` | Shared art primitives (`art-kit.tsx`) for casts and figures |
+| `Person`, `Arrow`, `Label`, `Mark` | Shared art primitives (`art-kit.tsx`) for casts and figures; `Mark` is a yes/no badge |
 | `PageShell`, `Article`, `EntryHeader`, `EntryCard`, `ViewSwitch`, `Tag` | Page frame, header, list tile and view switch; the routes render these, so entries never do |
 
 ## Done when

@@ -30,7 +30,11 @@ export function SubHeading({ id, children }: { id: string; children: ReactNode }
   );
 }
 
-/** A plain bulleted list, for use inside Prose. */
-export function BulletList({ children }: { children: ReactNode }) {
-  return <ul className="flex list-disc flex-col gap-2 pl-5">{children}</ul>;
+/** A plain list, for use inside Prose: bulleted, or numbered with `ordered` when the order matters (e.g. run steps). */
+export function BulletList({ children, ordered = false }: { children: ReactNode; ordered?: boolean }) {
+  return ordered ? (
+    <ol className="flex list-decimal flex-col gap-2 pl-5">{children}</ol>
+  ) : (
+    <ul className="flex list-disc flex-col gap-2 pl-5">{children}</ul>
+  );
 }
