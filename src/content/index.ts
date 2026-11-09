@@ -39,6 +39,10 @@ import { meta as mcpInNextjsMeta } from "./mcp-in-nextjs/meta";
 import McpInNextjsArt from "./mcp-in-nextjs/art";
 import McpInNextjsExplainer from "./mcp-in-nextjs/explainer";
 import McpInNextjsTech from "./mcp-in-nextjs/tech";
+import { meta as agentArenaMeta } from "./agent-arena/meta";
+import AgentArenaArt from "./agent-arena/art";
+import AgentArenaExplainer from "./agent-arena/explainer";
+import AgentArenaTech from "./agent-arena/tech";
 
 /** The shared tag set. Add a tag only when none of these fit. */
 export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning", "governance", "video"] as const;
@@ -54,6 +58,7 @@ export const entries: Entry[] = [
   { meta: selfImprovingAgentMeta, Art: SelfImprovingAgentArt, Explainer: SelfImprovingAgentExplainer, Tech: SelfImprovingAgentTech },
   { meta: agentSafetyNetMeta, Art: AgentSafetyNetArt, Explainer: AgentSafetyNetExplainer, Tech: AgentSafetyNetTech },
   { meta: mcpInNextjsMeta, Art: McpInNextjsArt, Explainer: McpInNextjsExplainer, Tech: McpInNextjsTech },
+  { meta: agentArenaMeta, Art: AgentArenaArt, Explainer: AgentArenaExplainer, Tech: AgentArenaTech },
 ];
 
 export function getEntry(slug: string): Entry | undefined {
