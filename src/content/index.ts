@@ -43,6 +43,10 @@ import { meta as agentArenaMeta } from "./agent-arena/meta";
 import AgentArenaArt from "./agent-arena/art";
 import AgentArenaExplainer from "./agent-arena/explainer";
 import AgentArenaTech from "./agent-arena/tech";
+import { meta as agentMemoryMeta } from "./agent-memory/meta";
+import AgentMemoryArt from "./agent-memory/art";
+import AgentMemoryExplainer from "./agent-memory/explainer";
+import AgentMemoryTech from "./agent-memory/tech";
 
 /** The shared tag set. Add a tag only when none of these fit. */
 export const TAGS = ["decisions", "evals", "llms", "rag", "agents", "mcp", "fine-tuning", "governance", "video"] as const;
@@ -59,6 +63,7 @@ export const entries: Entry[] = [
   { meta: agentSafetyNetMeta, Art: AgentSafetyNetArt, Explainer: AgentSafetyNetExplainer, Tech: AgentSafetyNetTech },
   { meta: mcpInNextjsMeta, Art: McpInNextjsArt, Explainer: McpInNextjsExplainer, Tech: McpInNextjsTech },
   { meta: agentArenaMeta, Art: AgentArenaArt, Explainer: AgentArenaExplainer, Tech: AgentArenaTech },
+  { meta: agentMemoryMeta, Art: AgentMemoryArt, Explainer: AgentMemoryExplainer, Tech: AgentMemoryTech },
 ];
 
 export function getEntry(slug: string): Entry | undefined {
